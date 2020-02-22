@@ -1,114 +1,121 @@
 # Greenlist Registry (back end) (full-stack app)
 
 ## Table of Contents
-+ [Database Schema](#ii-working-database-schema)
-+ [Endpoints](#iii-functional-endpoints)
+
+- [Database Schema](#ii-working-database-schema)
+- [Endpoints](#iii-functional-endpoints)
 
 ## Repos
-+ [Back End](https://github.com/joseph-p-pasaoa/greenlistRegistry_back__Web) (this repo)
-+ [Front End](https://github.com/joseph-p-pasaoa/greenlistRegistry_front__Web)
+
+- [Back End](https://github.com/joseph-p-pasaoa/greenlistRegistry_back__Web) (this repo)
+- [Front End](https://github.com/joseph-p-pasaoa/greenlistRegistry_front__Web)
 
 ## Developers
-+ **Aransa Garcia, Joseph P. Pasaoa, Kathy Puma, and Sergio Salama**
+
+- **Aransa Garcia, Joseph P. Pasaoa, Kathy Puma, and Sergio Salama**
 
 ## Instructional Team
-+ **LEAD Instructor:** [Alejandro Franco -- ( @alejo4373 )](https://github.com/alejo4373)
-+ **IA:** [Jung Rae Jang -- ( @jungraejang )](https://github.com/jungraejang)
-+ **IA:** [Wynter Reid -- ( @wynterreid )](https://github.com/wynterreid)
+
+- **LEAD Instructor:** [Alejandro Franco -- ( @alejo4373 )](https://github.com/alejo4373)
+- **IA:** [Jung Rae Jang -- ( @jungraejang )](https://github.com/jungraejang)
+- **IA:** [Wynter Reid -- ( @wynterreid )](https://github.com/wynterreid)
 
 ## Developer's Notes
 
 ### **I. Database SCHEMA**
-  - **Users**
-    - id
-    - username - _Unique, Not Null_
-    - avatar_url 
 
-  - **Shows**
-    - id
-    - imdb_id
-    - title - _Not Null_
-    - year
-    - img_url
-    - ---
-    - *~~genre_id - _References Genres_~~* _(moved to new Shows-Genres)_
-    - ~~user_id - _References Users_~~ _(moved to new Users-Shows)_
+- **Users**
 
-  - **Genres**
-    - id
-    - name - _Unique, Not Null_
+  - id
+  - username - _Unique, Not Null_
+  - avatar_url
 
-  - **Users_Shows**
-    - id
-    - user_id - _References Users + On Delete Cascade_
-    - show_id - _References Shows + On Delete Cascade_
-    - watch_status - ("onRadar", "now", "watched")
-    - is_top3 - (bool)
+- **Shows**
 
-  - **Shows_Genres**
-    - id
-    - show_id - _References Shows + On Delete Cascade_
-    - genre_id - _References Genres + On Delete Cascade_
+  - id
+  - imdb_id
+  - title - _Not Null_
+  - year
+  - img_url
 
-  - **Comments**
-    - id
-    - commenter_id - _References Users + On Delete Cascade_
-    - usershow_id - _References Users-Shows + On Delete Cascade_
-    - time_modified
-    - body - _Not Null_
-    - ---
-    - ~~user_id - _References Users_~~ _(redundant by new usershow_id)_
-    - ~~show_id - _References Shows_~~ _(redundant by new usershow_id)_
+  ***
 
-  ---
+  - _~~genre*id - \_References Genres*~~_ _(moved to new Shows-Genres)_
+  - ~~user*id - \_References Users*~~ _(moved to new Users-Shows)_
+
+- **Genres**
+
+  - id
+  - name - _Unique, Not Null_
+
+- **Users_Shows**
+
+  - id
+  - user*id - \_References Users + On Delete Cascade*
+  - show*id - \_References Shows + On Delete Cascade*
+  - watch_status - ("onRadar", "now", "watched")
+  - is_top3 - (bool)
+
+- **Shows_Genres**
+
+  - id
+  - show*id - \_References Shows + On Delete Cascade*
+  - genre*id - \_References Genres + On Delete Cascade*
+
+- **Comments**
+  - id
+  - commenter*id - \_References Users + On Delete Cascade*
+  - usershow*id - \_References Users-Shows + On Delete Cascade*
+  - time_modified
+  - body - _Not Null_
+  ***
+  - ~~user*id - \_References Users*~~ _(redundant by new usershow_id)_
+  - ~~show*id - \_References Shows*~~ _(redundant by new usershow_id)_
+
+---
 
 ### **II. Functional ENDPOINTS**
-  - **Users**
 
-    | Method | Endpoint     | Description           | Body Data                |
-    | ------ | ------------ | --------------------- | ------------------------ |
-    | GET    | `/users`     | Get all users         | n/a                      |
-    | GET    | `/users/:id` | Get single user by id | n/a                      |
-    | POST   | `/users/`    | Add new user          | `username`, `avatarUrl`  |
+- **Creators**
 
-  - **Shows**
+  | Method | Endpoint        | Description              | Body Data                                                                                                         |
+  | ------ | --------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+  | GET    | `/creators`     | Get all creators         | n/a                                                                                                               |
+  | GET    | `/creators/:id` | Get single creator by id | n/a                                                                                                               |
+  | POST   | `/creators/`    | Add new creator          | `username`, `firstname`, `lastname`, `password`, `avatarUrl`,`phoneNumber`, `address`,`email`, `website`, `about` |
+  | UPDATE | `/creators/`    | Update creator Info      | `username`, `firstname`, `lastname`, `password`,`avatarUrl`,`phoneNumber`, `address`,`email`, `website`, `about`  |
 
-    | Method | Endpoint                 | Description                         | Body Data                                 |
-    | ------ | ------------------------ | ----------------------------------- | ----------------------------------------- |
-    | GET    | `/shows`                 | Get all shows                       | n/a                                       |
-    | GET    | `/shows/:id`             | Get single show by id               | n/a                                       |
-    | GET    | `/shows/genre/:genre_id` | Get all shows of genre              | n/a                                       |
-    | GET    | `/shows/imdb/:imdb_id`   | Get single show by Imdb id          | n/a                                       |
-    | POST   | `/shows`                 | Add new show                        | `imdb_id`, `title`, `year`, `img_url`     |
+* **Resourcers**
 
-  - **Genres**
+| Method | Endpoint         | Description                | Body Data                                                                                    |
+| ------ | ---------------- | -------------------------- | -------------------------------------------------------------------------------------------- |
+| GET    | `/resources`     | Get all resources          | n/a                                                                                          |
+| GET    | `/resources/:id` | Get single resources by id | n/a                                                                                          |
+| POST   | `/resources/`    | Add new resources          | `companyName`, `avatarUrl`, `about`, `passowrd`, `phoneNumber`, `address`,`email`, `website` |
+| UPDATE | `/resources/`    | Update creator Info        | `username`, `avatarUrl`, `about`, `phoneNumber`, `address`,`email`, `website`, `about`       |
 
-    | Method | Endpoint  | Description    | Body Data    |
-    | ------ | --------- | -------------- | ------------ |
-    | GET    | `/genres` | Get all genres | n/a          |
-    | POST   | `/genres` | Add new genre  | `name`       |
+- **Products**
 
-  - **Users-Shows**
+  | Method | Endpoint                   | Description                  | BodyData                                      |
+  | ------ | -------------------------- | ---------------------------- | --------------------------------------------- |
+  | POST   | `/products`                | ADD new Product              | `name`, `body`, `resourcer_id`, `material_id` |
+  | GET    | `/products`                | Get all products             | n/a                                           |
+  | GET    | `/products/:resourcers:id` | Get product by resourcers ID | n/a                                           |
+  | DELETE | `/products/:id`            | Delete single product by ID  | n/a                                           |
 
-    | Method | Endpoint                     | Description                                  | Body Data                                       |
-    | ------ | ---------------------------- | -------------------------------------------- | ----------------------------------------------- |
-    | GET    | `/users-shows/` | Get all user-show relationships in hashmap           | n/a                                             |
-    | GET    | `/users-shows/user/:user_id` | Get all shows for specific user_id           | n/a                                             |
-    | GET    | `/users-shows/show/:show_id/user/:user_id` | Get the complete dataset of a specific user-show relationship | n/a                                             |
-    | GET    | `/user/:user_id/imdb/:imdb_id` | Get bool res if whether user-show(by imdbId) relation exists in db | n/a                                             |
-    | POST   | `/create/:user_id/:imdb_id`  | Add new user-show connection w/ watch status | `watch_status`; if new show, also: `title`, `year`, `imgUrl` |
-    | PATCH  | `/update/:user_id/:show_id`  | Update user-show connection                  | `watch_status` (optional), `is_top3` (optional) |
+- **Reclaims**
 
-  - **Shows-Genres**
+  | Method | Endpoint                   | Description                  | BodyData                                                         |
+  | ------ | -------------------------- | ---------------------------- | ---------------------------------------------------------------- |
+  | POST   | `/reclaims`                | ADD new reclaim              | `name`, `body`, `quantity`, `timestamp`, `creator_id`, `is_need` |
+  | GET    | `/reclaims`                | Get all reclaims             | n/a                                                              |
+  | GET    | `/reclaims/:resourcers:id` | Add new reclaim              | n/a                                                              |
+  | DELETE | `/reclaims/:id`            | Delete reclaim product by ID | n/a                                                              |
 
-    | Method | Endpoint                                     | Description                          | Body Data     |
-    | ------ | -------------------------------------------- | ------------------------------------ | ------------- |
-    | GET    | `/shows-genres/genre/:name`                  | Get all shows by specific genre name | n/a           |
-    | POST   | `/shows-genres/create/:show_id/:genre_name`  | Add new show-genre relationship      | n/a           |
+* **Materials**
 
-  - **Comments**
+  | Method | Endpoint         | Description       | Body Data |
+  | ------ | ---------------- | ----------------- | --------- |
+  | GET    | `/materials`     | Get all materials | n/a       |
+  | GET    | `/materials/:id` | get all by ID     | n/a       |
 
-    | Method | Endpoint                             | Description                                      | Body Data                      |
-    | ------ | ------------------------------------ | ------------------------------------------------ | ------------------------------ |
-    | GET    | `/comments/:watcher_id/:show_id`     | Get all comments for specific user-show page     | n/a                            |
-    | POST   | `/comments/add/:user_show_id`        | Add new comment                                  | `commenterId`, `comment`       |
