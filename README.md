@@ -24,53 +24,51 @@
 
 ### **I. Database SCHEMA**
 
-- **Users**
+- **Creators**
 
-  - id
-  - username - _Unique, Not Null_
-  - avatar_url
+- id
+- username
+- firstname
+- lastname
+- password
+- about
+- avatar_url
+- phone
+- email
+- website
+- address
 
-- **Shows**
+- **Resourcers**
 
-  - id
-  - imdb_id
-  - title - _Not Null_
-  - year
-  - img_url
+- id
+- company name
+- about
+- avatar_url
+- phone number
+- email
+- website
+- address
 
-  ***
-
-  - _~~genre*id - \_References Genres*~~_ _(moved to new Shows-Genres)_
-  - ~~user*id - \_References Users*~~ _(moved to new Users-Shows)_
-
-- **Genres**
+- **Products**
 
   - id
   - name - _Unique, Not Null_
+  - body
+  - resourcers_id
+  - material_id
 
-- **Users_Shows**
+- **Reclaim**
+- id
+- name
+- quantity
+- body
+- creator_id
+- is_need
 
-  - id
-  - user*id - \_References Users + On Delete Cascade*
-  - show*id - \_References Shows + On Delete Cascade*
-  - watch_status - ("onRadar", "now", "watched")
-  - is_top3 - (bool)
-
-- **Shows_Genres**
-
-  - id
-  - show*id - \_References Shows + On Delete Cascade*
-  - genre*id - \_References Genres + On Delete Cascade*
-
-- **Comments**
-  - id
-  - commenter*id - \_References Users + On Delete Cascade*
-  - usershow*id - \_References Users-Shows + On Delete Cascade*
-  - time_modified
-  - body - _Not Null_
-  ***
-  - ~~user*id - \_References Users*~~ _(redundant by new usershow_id)_
-  - ~~show*id - \_References Shows*~~ _(redundant by new usershow_id)_
+- **Materials**
+- id
+- name
+- description
 
 ---
 
@@ -118,4 +116,3 @@
   | ------ | ---------------- | ----------------- | --------- |
   | GET    | `/materials`     | Get all materials | n/a       |
   | GET    | `/materials/:id` | get all by ID     | n/a       |
-
