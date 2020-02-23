@@ -31,30 +31,21 @@ const getAllResourcers= async () => {
         INSERT INTO users (company, password, about, avatar_Url, phone_Number, 
            email, wesbite, address)
         ) VALUES ($/company/
-          , $/password/, $/about/, $/avatar_Url/, $/phone_Number/, $/email/, 
-          $/website/, $/address/
+          , $/password/, $/about/, $/avatar_url/, $/phone_number/, $/email/, 
+          $/website_url/, $/address/
         ) RETURNING *;
       `;
       return await db.one(postQuery, bodyObj);
     } catch (err) {
       if (err.message.includes("violates unique constraint")) {
         throw new Error(
-          `403__error: company ${bodyObj.company
-            } already exists. Please try again with a new company.`
+          `403__error: company ${bodyObj.company} already exists. Please try again with a new company.`
         );
       }
       throw (err);
     }
   }
-
-
-// still working on patch route
-//   let editResourcer = async () =>{
-try {
-    const patchQuery 
-}
-//   }
-
+//patch missing
   module.exports = {
     getAllResourcers,
     getResourcerById,
