@@ -12,15 +12,25 @@
 
 ## Developers
 
-- **Aransa Garcia, Joseph P. Pasaoa, Kathy Puma, and Sergio Salama**
+- [**Aransa Garcia**](https://github.com/aransagarcia) (Program Manager)
+- [**Joseph P. Pasaoa**](https://github.com/joseph-p-pasaoa) (Tech Lead)
+- [**Kathy Puma**](https://github.com/KathyPuma) (PR Review)
+- [**Sergio Salama**](https://github.com/sergiocohens) (UX/UI)
 
 ## Instructional Team
 
-- **LEAD Instructor:** [Alejandro Franco -- ( @alejo4373 )](https://github.com/alejo4373)
-- **IA:** [Jung Rae Jang -- ( @jungraejang )](https://github.com/jungraejang)
-- **IA:** [Wynter Reid -- ( @wynterreid )](https://github.com/wynterreid)
+- **LEAD Instructor:** [Alejandro Franco](https://github.com/alejo4373)
+- **IA:** [Jung Rae Jang](https://github.com/jungraejang)
+- **IA:** [Wynter Reid](https://github.com/wynterreid)
 
-## Developer's Notes
+## Industry Advisors
+
+- Percy Hicks -- [EclecticLifestyleByPercyHicks | Instagram](https://www.instagram.com/eclecticlifestylesbypercyhicks)
+- Isabella Montoya Paz -- [PazLifestyle](https://www.pazlifestyle.com/)
+- Van Tran -- ()
+- Lisa ? -- ()
+
+## Developers' Notes
 
 ### **I. Database SCHEMA**
 
@@ -32,14 +42,14 @@
     - password - _Not Null_
     - about
     - avatar_url
-    - phone
+    - phone_number
     - email - _Unique, Not Null_
     - website_url
     - address
 
   - **Resourcers**
     - id
-    - company name - _Unique, Not Null_
+    - company_name - _Unique, Not Null_
     - about
     - avatar_url
     - phone number
@@ -71,7 +81,7 @@
     - id
     - title - _Not Null_
     - caption
-    - url - _Not Null_
+    - photo_url - _Not Null_
     - reclaim_id - _References Reclaims + On Delete Cascade_
 
 ---
@@ -93,7 +103,7 @@
   | ------ | ---------------- | -------------------------- | -------------------------------------------------------------------------------------------- |
   | GET    | `/resourcers`     | Get all resourcers          | n/a                                                                                          |
   | GET    | `/resourcers/:id` | Get single resourcer by id | n/a                                                                                          |
-  | POST   | `/resourcers/add`    | Add new resourcers          | `company_name`, `avatar_url`, `about`, `passowrd`, `phone_number`, `address`, `email`, `website_url` |
+  | POST   | `/resourcers/add`    | Add new resourcers          | `company_name`, `avatar_url`, `about`, `password`, `phone_number`, `address`, `email`, `website_url` |
   | PATCH | `/resourcers/edit`    | Update creator Info        | `username`, `avatar_url`, `about`, `phone_number`, `address`, `email`, `website_url`, `about`       |
 
 - **Products**
