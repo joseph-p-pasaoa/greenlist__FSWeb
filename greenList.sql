@@ -61,8 +61,6 @@ CREATE TABLE reclaims (
 
 CREATE TABLE photos (
     id SERIAL PRIMARY KEY,
-    -- title VARCHAR(25),
-    -- description VARCHAR(255),
     photo_url TEXT,
     reclaim_id INT REFERENCES reclaims(id)
 );
