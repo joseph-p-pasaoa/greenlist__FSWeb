@@ -32,6 +32,8 @@
 
 ## Developers' Notes
 
+![database schema](./readme/database-schema.png)
+
 ### **I. Database SCHEMA**
 
   - **Creators**
