@@ -3,7 +3,7 @@ CREATE DATABASE greenlist_registry_db;
 \c greenlist_registry_db;
 
 
-CREATE TABLE creators(
+CREATE TABLE creators (
     id SERIAL PRIMARY KEY,
     username VARCHAR(25),
     firstname VARCHAR(25),
