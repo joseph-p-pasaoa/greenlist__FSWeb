@@ -34,7 +34,7 @@
     - avatar_url
     - phone
     - email - _Unique, Not Null_
-    - website
+    - website_url
     - address
 
   - **Resources**
@@ -44,7 +44,7 @@
     - avatar_url
     - phone number
     - email - _Unique, Not Null_
-    - website
+    - website_url
     - address
 
   - **Products**
@@ -84,8 +84,8 @@
   | ------ | --------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------- |
   | GET    | `/creators`     | Get all creators         | n/a                                                                                                               |
   | GET    | `/creators/:id` | Get single creator by id | n/a                                                                                                               |
-  | POST   | `/creators/add`    | Add new creator          | `username`, `firstname`, `lastname`, `password`, `avatar_url`, `phone_number`, `address`, `email`, `website`, `about` |
-  | PATCH | `/creators/edit`    | Update creator Info      | `username`, `firstname`, `lastname`, `password`, `avatar_url`, `phone_number`, `address`, `email`, `website`, `about`  |
+  | POST   | `/creators/add`    | Add new creator          | `username`, `firstname`, `lastname`, `password`, `avatar_url`, `phone_number`, `address`, `email`, `website_url`, `about` |
+  | PATCH | `/creators/edit`    | Update creator Info      | `username`, `firstname`, `lastname`, `password`, `avatar_url`, `phone_number`, `address`, `email`, `website_url`, `about`  |
 
 * **Resources** 
 
@@ -93,8 +93,8 @@
   | ------ | ---------------- | -------------------------- | -------------------------------------------------------------------------------------------- |
   | GET    | `/resources`     | Get all resources          | n/a                                                                                          |
   | GET    | `/resources/:id` | Get single resource by id | n/a                                                                                          |
-  | POST   | `/resources/add`    | Add new resources          | `company_name`, `avatar_url`, `about`, `passowrd`, `phone_number`, `address`, `email`, `website` |
-  | PATCH | `/resources/edit`    | Update creator Info        | `username`, `avatar_url`, `about`, `phone_number`, `address`, `email`, `website`, `about`       |
+  | POST   | `/resources/add`    | Add new resources          | `company_name`, `avatar_url`, `about`, `passowrd`, `phone_number`, `address`, `email`, `website_url` |
+  | PATCH | `/resources/edit`    | Update creator Info        | `username`, `avatar_url`, `about`, `phone_number`, `address`, `email`, `website_url`, `about`       |
 
 - **Products**
 
