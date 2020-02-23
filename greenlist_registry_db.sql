@@ -1,7 +1,6 @@
-DROP DATABASE if exists greenlist_db;
-CREATE DATABASE greenlist_db;
-
-\c greenlist_db;
+DROP DATABASE IF EXISTS greenlist_registry_db;
+CREATE DATABASE greenlist_registry_db;
+\c greenlist_registry_db;
 
 
 CREATE TABLE creators(
@@ -18,7 +17,7 @@ CREATE TABLE creators(
     address VARCHAR(150)
 );
 
-CREATE TABLE resourcers(
+CREATE TABLE resourcers (
     id SERIAL PRIMARY KEY,
     company VARCHAR(50),
     password VARCHAR(50),
@@ -48,14 +47,14 @@ CREATE TABLE reclaims (
     creator_id INT REFERENCES creators(id) ON DELETE CASCADE
 );
 
-CREATE TABLE materials(
+CREATE TABLE materials (
     id SERIAL PRIMARY KEY,
     name VARCHAR(25),
     description TEXT,
     photo_url TEXT
 );
 
-CREATE TABLE photos(
+CREATE TABLE photos (
     id SERIAL PRIMARY KEY,
     title VARCHAR(25),
     description VARCHAR(255),
