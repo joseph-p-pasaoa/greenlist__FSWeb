@@ -1,6 +1,6 @@
 /*
 GROUP 4: ARANSA GARCIA, JOSEPH P. PASAOA, KATHY PUMA, AND SERGIO SALAMA
-Server App MAIN | Greenlist Registry (a full-stack sustainable material forum app)
+Server Error Handler Helper | Greenlist Registry (a full-stack sustainable material forum app)
 */
 
 
