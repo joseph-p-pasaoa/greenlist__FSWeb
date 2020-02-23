@@ -1,9 +1,13 @@
 # Greenlist Registry (back end) (full-stack app)
 
+Designers, especially independent and small designers, lack a centralized resource to find, research, and even discover eco-friendly sustainable materials they can use.
+
+Greenlist Registry aims to be an official registry, directory, and forum for designers and brands to find providers and suppliers of green materials. As well as serve as a networking vessel for material reclaim.
+
 ## Table of Contents
 
-- [Database Schema](#i-database-schema)
-- [Endpoints](#ii-endpoints)
+- [Database Schema](#ii-database-schema)
+- [Endpoints](#iii-endpoints)
 
 ## Repos
 
@@ -20,9 +24,15 @@
 - **IA:** [Jung Rae Jang -- ( @jungraejang )](https://github.com/jungraejang)
 - **IA:** [Wynter Reid -- ( @wynterreid )](https://github.com/wynterreid)
 
-## Developer's Notes
+## Developers' Notes
 
-### **I. Database SCHEMA**
+### **I. Wireframes**
+
+![Wireframe PDF](./README/wireframes.pdf)
+
+### **II. Database SCHEMA**
+
+![schema diagram](./readme/database-schema.png)
 
   - **Creators**
     - id
@@ -76,7 +86,7 @@
 
 ---
 
-### **II. ENDPOINTS**
+### **III. ENDPOINTS**
 
 - **Creators**
 
