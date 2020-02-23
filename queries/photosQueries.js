@@ -12,7 +12,7 @@ const getPhotosByReclaimId = async (id) => {
         return await db.any(getQueryById, { id });
     } catch (err) {
         if (err.message === "No data returned from the query.") {
-            throw new Error(`404__error: reclaim ${id} does not exist`);
+            throw new Error(`404__error: Photo ${id} does not exist`);
         }
         throw (err);
     }
