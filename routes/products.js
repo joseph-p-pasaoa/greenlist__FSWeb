@@ -69,8 +69,8 @@ router.post("/add", async (req, res, next) => {
   } catch (err) {
     handleError(err, req, res, next);
       throw new Error(
-        `403__error: username ${bodyObj.username
-          } already exists. Please try again with a new username.`
+        `403__error: product ${bodyObj.name
+          } already exists. Please try again with a new product.`
       );
   }
 });
