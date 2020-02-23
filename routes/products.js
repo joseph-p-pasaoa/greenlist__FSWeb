@@ -21,7 +21,7 @@ router.get("/", async (req, res, next) => {
 
 router.get("/:resourcers_id", async (req, res, next) => {
   try {
-    const resourcers_id = processInput(req.params.resourcers_id, "idNum", "user id");
+    const resourcers_id = processInput(req.params.resourcers_id, "idNum", "resoucer id");
     console.log(resourcers_id)
     const productById = await queries.getProductById(resourcers_id);
     res.status(200);
@@ -40,7 +40,7 @@ router.post("/add", async (req, res, next) => {
   try {
     const name = processInput(req.body.name, "hardVarchar22", "name");
 
-    const body = processInput(req.body.body, "hardVarchar22", "body");
+    const body = (req.body.body)
 
     resourcers_id = processInput(
       req.body.resourcers_id,
@@ -68,6 +68,10 @@ router.post("/add", async (req, res, next) => {
     });
   } catch (err) {
     handleError(err, req, res, next);
+      throw new Error(
+        `403__error: username ${bodyObj.username
+          } already exists. Please try again with a new username.`
+      );
   }
 });
 
@@ -82,6 +86,7 @@ router.delete("/delete/:id", async (req, res, next) => {
       message: `Product ${id} deleted`,
       payload: deletedProduct
     });
+    
   } catch (err) {
     handleError(err, req, res, next);
     console.log(err)

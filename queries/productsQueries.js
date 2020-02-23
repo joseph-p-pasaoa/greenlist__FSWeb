@@ -9,17 +9,19 @@ const getAllProducts = async () => {
   return await db.any(getQuery);
 };
 
-const getProductById = async (resourcers_id)=> {
+const getProductById = async (resourcers_id) => {
   try {
     const getQuery = `
         SELECT *
         FROM products
-        WHERE resourcers_id = $/id/;
+        WHERE resourcers_id = $/resourcers_id/;
       `;
     return await db.one(getQuery, { resourcers_id });
   } catch (err) {
     if (err.message === "No data returned from the query.") {
-      throw new Error(`404__error: product with resourcers ${id} does not exist`);
+      throw new Error(
+        `404__error: product with resourcers ${resourcers_id} does not exist`
+      );
     }
     throw err;
   }
@@ -45,13 +47,12 @@ const addProduct = async bodyObj => {
   }
 };
 
-
-const deleteProduct = async (id) => {
+const deleteProduct = async id => {
   try {
     const deleteQuery = `DELETE FROM products 
           WHERE id = $/id/`;
 
-    return await db.one(deleteQuery, { id });
+    return await db.none(deleteQuery, { id });
   } catch (err) {
     if (err.message.includes("violates unique constraint")) {
       throw new Error(
