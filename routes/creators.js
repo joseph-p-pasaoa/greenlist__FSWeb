@@ -8,11 +8,11 @@ const creatorsQueries = require('../queries/creatorsQueries')
 
 router.get('/', async (req, res, next) => {
     try {
-        let allPhotos = await creatorsQueries.getAllCreators()
+        let allCreators = await creatorsQueries.getAllCreators()
         res.json({
             status: "success",
             message: "all creators retrieved",
-            payload: allPhotos
+            payload: allCreators
         });
     } catch (err) {
         handleError(err, req, res, next);
@@ -23,11 +23,11 @@ router.get('/', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
     try {
         const id = processInput(req.params.id, "idNum", "creator id");
-        let photo = await creatorsQueries.getCreatorById(id)
+        let creator = await creatorsQueries.getCreatorById(id)
         res.json({
             status: "success",
             message: "Retrieved specific creator",
-            payload: photo,
+            payload: creator,
             err: false
         })
     } catch (err) {
@@ -55,7 +55,7 @@ router.post("/add/", async (req, res, next) => {
         res.status(201);
         res.json({
             status: "success",
-            message: `new user '${username}' added`,
+            message: `new creator '${username}' added`,
             payload: response
         });
     } catch (err) {
@@ -85,7 +85,7 @@ router.patch("/edit/:id", async (req, res, next) => {
         res.status(201);
         res.json({
             status: "success",
-            message: `user '${username}' edited`,
+            message: `created '${username}' edited`,
             payload: response
         });
     } catch (err) {
