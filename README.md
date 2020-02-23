@@ -32,9 +32,13 @@
 
 ## Developers' Notes
 
-![database schema](./readme/database-schema.png)
+### **I. Wireframes**
 
-### **I. Database SCHEMA**
+[Wireframes PDF](./readme/wireframes.pdf)
+
+### **II. Database SCHEMA**
+
+![database schema](./readme/database-schema.png)
 
   - **Creators**
     - id
@@ -88,7 +92,7 @@
 
 ---
 
-### **II. ENDPOINTS**
+### **III. ENDPOINTS**
 
 - **Creators**
 
