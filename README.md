@@ -2,8 +2,8 @@
 
 ## Table of Contents
 
-- [Database Schema](#ii-working-database-schema)
-- [Endpoints](#iii-functional-endpoints)
+- [Database Schema](#i-database-schema)
+- [Endpoints](#ii-endpoints)
 
 ## Repos
 
@@ -24,55 +24,59 @@
 
 ### **I. Database SCHEMA**
 
-- **Creators**
+  - **Creators**
+    - id
+    - username - _Unique, Not Null_
+    - firstname - _Not Null_
+    - lastname - _Not Null_
+    - password - _Not Null_
+    - about
+    - avatar_url
+    - phone
+    - email - _Unique, Not Null_
+    - website
+    - address
 
-- id
-- username
-- firstname
-- lastname
-- password
-- about
-- avatar_url
-- phone
-- email
-- website
-- address
+  - **Resources**
+    - id
+    - company name - _Unique, Not Null_
+    - about
+    - avatar_url
+    - phone number
+    - email - _Unique, Not Null_
+    - website
+    - address
 
-- **Resourcers**
+  - **Products**
+    - id
+    - name - _Not Null_
+    - body - _Not Null_
+    - resourcer_id - _References Resourcers + On Delete Cascade_
+    - material_id - _References Materials_
 
-- id
-- company name
-- about
-- avatar_url
-- phone number
-- email
-- website
-- address
+  - **Reclaims**
+    - id
+    - name - _Not Null_
+    - quantity - _Not Null_
+    - body - _Not Null_
+    - creator_id - _References Creators + On Delete Cascade_
+    - is_need - _Boolean_
 
-- **Products**
+  - **Materials**
+    - id
+    - name - _Not Null_
+    - description - _Not Null_
 
-  - id
-  - name - _Unique, Not Null_
-  - body
-  - resourcers_id
-  - material_id
-
-- **Reclaim**
-- id
-- name
-- quantity
-- body
-- creator_id
-- is_need
-
-- **Materials**
-- id
-- name
-- description
+  - **Photos**
+    - id
+    - title - _Not Null_
+    - caption
+    - url - _Not Null_
+    - reclaim_id - _References Reclaims + On Delete Cascade_
 
 ---
 
-### **II. Functional ENDPOINTS**
+### **II. ENDPOINTS**
 
 - **Creators**
 
@@ -80,35 +84,35 @@
   | ------ | --------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------- |
   | GET    | `/creators`     | Get all creators         | n/a                                                                                                               |
   | GET    | `/creators/:id` | Get single creator by id | n/a                                                                                                               |
-  | POST   | `/creators/`    | Add new creator          | `username`, `firstname`, `lastname`, `password`, `avatarUrl`,`phoneNumber`, `address`,`email`, `website`, `about` |
-  | UPDATE | `/creators/`    | Update creator Info      | `username`, `firstname`, `lastname`, `password`,`avatarUrl`,`phoneNumber`, `address`,`email`, `website`, `about`  |
+  | POST   | `/creators/add`    | Add new creator          | `username`, `firstname`, `lastname`, `password`, `avatar_url`, `phone_number`, `address`, `email`, `website`, `about` |
+  | PATCH | `/creators/edit`    | Update creator Info      | `username`, `firstname`, `lastname`, `password`, `avatar_url`, `phone_number`, `address`, `email`, `website`, `about`  |
 
-* **Resourcers**
+* **Resources** 
 
-| Method | Endpoint         | Description                | Body Data                                                                                    |
-| ------ | ---------------- | -------------------------- | -------------------------------------------------------------------------------------------- |
-| GET    | `/resources`     | Get all resources          | n/a                                                                                          |
-| GET    | `/resources/:id` | Get single resources by id | n/a                                                                                          |
-| POST   | `/resources/`    | Add new resources          | `companyName`, `avatarUrl`, `about`, `passowrd`, `phoneNumber`, `address`,`email`, `website` |
-| UPDATE | `/resources/`    | Update creator Info        | `username`, `avatarUrl`, `about`, `phoneNumber`, `address`,`email`, `website`, `about`       |
+  | Method | Endpoint         | Description                | Body Data                                                                                    |
+  | ------ | ---------------- | -------------------------- | -------------------------------------------------------------------------------------------- |
+  | GET    | `/resources`     | Get all resources          | n/a                                                                                          |
+  | GET    | `/resources/:id` | Get single resource by id | n/a                                                                                          |
+  | POST   | `/resources/add`    | Add new resources          | `company_name`, `avatar_url`, `about`, `passowrd`, `phone_number`, `address`, `email`, `website` |
+  | PATCH | `/resources/edit`    | Update creator Info        | `username`, `avatar_url`, `about`, `phone_number`, `address`, `email`, `website`, `about`       |
 
 - **Products**
 
   | Method | Endpoint                   | Description                  | BodyData                                      |
   | ------ | -------------------------- | ---------------------------- | --------------------------------------------- |
-  | POST   | `/products`                | ADD new Product              | `name`, `body`, `resourcer_id`, `material_id` |
   | GET    | `/products`                | Get all products             | n/a                                           |
-  | GET    | `/products/:resourcers:id` | Get product by resourcers ID | n/a                                           |
-  | DELETE | `/products/:id`            | Delete single product by ID  | n/a                                           |
+  | GET    | `/products/:resource_id` | Get product by resource ID | n/a                                           |
+  | POST   | `/products/add`                | ADD new Product              | `name`, `body`, `resource_id`, `material_id` |
+  | DELETE | `/products/delete/:id`            | Delete single product by ID  | n/a                                           |
 
 - **Reclaims**
 
   | Method | Endpoint                   | Description                  | BodyData                                                         |
   | ------ | -------------------------- | ---------------------------- | ---------------------------------------------------------------- |
-  | POST   | `/reclaims`                | ADD new reclaim              | `name`, `body`, `quantity`, `timestamp`, `creator_id`, `is_need` |
   | GET    | `/reclaims`                | Get all reclaims             | n/a                                                              |
-  | GET    | `/reclaims/:resourcers:id` | Add new reclaim              | n/a                                                              |
-  | DELETE | `/reclaims/:id`            | Delete reclaim product by ID | n/a                                                              |
+  | GET    | `/reclaims/:resource_id` | Add new reclaim              | n/a                                                              |
+  | POST   | `/reclaims/add`                | ADD new reclaim              | `name`, `body`, `quantity_num`, `quantity_label`, `time_created`, `creator_id`, `is_need` |
+  | DELETE | `/reclaims/delete/:id`            | Delete reclaim product by ID | n/a                                                              |
 
 * **Materials**
 
@@ -116,3 +120,12 @@
   | ------ | ---------------- | ----------------- | --------- |
   | GET    | `/materials`     | Get all materials | n/a       |
   | GET    | `/materials/:id` | get all by ID     | n/a       |
+
+* **Photos**
+​
+  | Method | Endpoint              | Description           | Body Data |
+  | ------ | --------------------- | --------------------- | --------- |
+  | GET    | `/photos`             | Get all photos        | n/a       |
+  | GET    | `/photos/:reclaim_id` | Get all by reclaim_id | n/a       |
+  | POST   | `/photos/add/`        | Add new photo         | `title`, `caption`, `url`       |
+  | DELETE | `/photos/delete/:id`         | Delete photo          | n/a       |
