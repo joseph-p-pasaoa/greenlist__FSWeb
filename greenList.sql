@@ -4,8 +4,7 @@ CREATE DATABASE greenlist_db;
 \c greenlist_db;
 
 
-CREATE TABLE creators
-(
+CREATE TABLE creators(
     id SERIAL PRIMARY KEY,
     username VARCHAR,
     firstname VARCHAR,
@@ -19,8 +18,7 @@ CREATE TABLE creators
     address VARCHAR
 );
 
-CREATE TABLE resourcers
-(
+CREATE TABLE resourcers(
     id SERIAL PRIMARY KEY,
     company VARCHAR,
     password VARCHAR,
@@ -40,14 +38,13 @@ CREATE TABLE products (
     material_id INT REFERENCES materials (id)
 );
 
-CREATE TABLE reclaims( 
+CREATE TABLE reclaims ( 
     id SERIAL PRIMARY KEY, 
     name VARCHAR, 
     quantity VARCHAR, 
     TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     body VARCHAR, 
-    creator_id INT REFERENCES creator (id) 
-
+    creator_id INT REFERENCES creators (id) 
 );
 
 CREATE TABLE materials( 
