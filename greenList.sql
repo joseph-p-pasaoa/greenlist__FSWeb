@@ -85,13 +85,16 @@ INSERT INTO resourcers
         ('RoyalApparel', 'apparel', 'Organic Clothing Manufaturers in the U.S.A', 'https://pbs.twimg.com/profile_images/900081763543678976/0u16IRag_400x400.jpg', '(000)-000-0004', 'sales@royalapparel.com', 'https://www.royalapparel.net//cgi-bin/liveb2b//wam_tmpl/login.p?site=B2B&layout=Baseb2b&page=login&loginLocation=/wam_tmpl/my_account.p%26page%3Dmy_account', 'USA' )
 
 
-    INSERT INTO materials
+INSERT INTO materials
         (name, description, photo_url)
-    VALUES
+VALUES
         ('Organic Cotton', 'Organic cotton is the alternative to this harmful process and still creates a comfortable product', 'https://fashionunited.uk/images/201706/r/810/Cotton-nn1.jpg'
 ),
         ('Hemp', 'This specific type of cannabis plant, does not exhaust the soil and does not require pesticides', 'https://images.unsplash.com/photo-1519181236443-b175d4c3ca1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80' ),
 
         ('Organic Linen', 'Natural Fabric that is made from flax can be grown without felitzer.', 'https://fabric-media.moodfabrics.com/media/catalog/product/cache/1/image/800x800/9df78eab33525d08d6e5fb8d27136e95/3/1/311043/5.6oz-natural-organic-linen-woven-311043-11.jpg?1558666306'); 
+
+
+
 
         
