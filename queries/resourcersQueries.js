@@ -27,16 +27,17 @@ const getAllResourcers= async () => {
 
   const addResourcer = async (bodyObj) => {
     try {
+      console.log(bodyObj)
       const postQuery = `
-        INSERT INTO users (company, password, about, avatar_Url, phone_Number, 
-           email, wesbite, address)
-        ) VALUES ($/company/
+        INSERT INTO resourcers (company, password, about, avatar_url, phone_number,email, website_url, address)
+        VALUES ($/company/
           , $/password/, $/about/, $/avatar_url/, $/phone_number/, $/email/, 
           $/website_url/, $/address/
         ) RETURNING *;
       `;
       return await db.one(postQuery, bodyObj);
     } catch (err) {
+      console.log(err)
       if (err.message.includes("violates unique constraint")) {
         throw new Error(
           `403__error: company ${bodyObj.company} already exists. Please try again with a new company.`
@@ -45,7 +46,8 @@ const getAllResourcers= async () => {
       throw (err);
     }
   }
-//patch missing
+
+//patch missing // 
   module.exports = {
     getAllResourcers,
     getResourcerById,

@@ -51,7 +51,7 @@ router.post("/add", async (req, res, next) => {
       const email = processInput(req.body.email, "hardVarchar22", "email");
 
 
-      const website_url = processInput(req.body.website, "softPicUrl", "website_url");
+      const website_url = (req.body.website_url)
 
       const address = processInput(req.body.address, "hardVarchar22", "address");
 
