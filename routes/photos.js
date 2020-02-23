@@ -51,7 +51,6 @@ router.post('/add/', async (req, res, next) => {
 
     } catch (err) {
         handleError(err, req, res, next);
-        console.log("Error---", err)
     }
 });
 

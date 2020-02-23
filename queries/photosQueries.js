@@ -43,7 +43,7 @@ const deletePhoto = async (id) => {
     } catch (err) {
       if (err.message.includes("violates unique constraint")) {
         throw new Error(
-          `403__error: Photo not deletetd. Please try again with a new id.`
+          `403__error: Photo can not deletetd. Please try again with a new id.`
         );
       }
       throw (err);
