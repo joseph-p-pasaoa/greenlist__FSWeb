@@ -110,7 +110,7 @@ const processInput = (input, location, inputName) => {
 
     case "hardText":
       if (!input || !input.trim()) {
-        throw new Error(softPicUrl`400__error: empty ${inputName}. Please enter a valid input`);
+        throw new Error(`400__error: empty ${inputName}. Please enter a valid input`);
       }
       return input.trim();
 
