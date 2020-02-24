@@ -21,54 +21,28 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
 
-/* FILE UPLOAD */
-// set storage
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, './public/images/avatars');
-  },
-  filename: (req, file, cb) => {
-    const fileName = Date.now() + "-" + file.originalname;
-    cb(null, fileName);
-  }
-});
-
-const fileFilter = (req, file, cb) => {
-  if ((file.mimetype).slice(0, 6) === 'image/') {
-    cb(null, true);
-  } else {
-    cb(null, false);
-  }
-}
-
-const upload = multer({
-  storage: storage,
-  fileFilter: fileFilter
-});
-
-
 /* ROUTING */
     // imports
-// const creatorsRouter = require('./routes/creators');
-// const resourcersRouter = require('./routes/resourcers');
-// const productsRouter = require('./routes/products');
-// const reclaimsRouter = require('./routes/reclaims');
-// const materialsRouter = require('./routes/materials');
-// const photosRouter = require('./routes/photos');
+const creatorsRouter = require('./routes/creators');
+const resourcersRouter = require('./routes/resourcers');
+const productsRouter = require('./routes/products');
+const reclaimsRouter = require('./routes/reclaims');
+const materialsRouter = require('./routes/materials');
+const photosRouter = require('./routes/photos');
     // connects
-// app.use('/creators', creatorsRouter);
-// app.use('/resourcers', resourcersRouter);
-// app.use('/products', productsRouter);
-// app.use('/reclaims', reclaimsRouter);
-// app.use('/materials', materialsRouter);
-// app.use('/photos', photosRouter);
+app.use('/creators', creatorsRouter);
+app.use('/resourcers', resourcersRouter);
+app.use('/products', productsRouter);
+app.use('/reclaims', reclaimsRouter);
+app.use('/materials', materialsRouter);
+app.use('/photos', photosRouter);
 
 
 /* ERROR HANDLING */
     // no-route catch
 app.use("*", (req, res) => {
     res.status(404).send(
-      'error: no such route found on the Bingebook server. Try again after fixing your route.'
+      'error: no such route found on the Greenlist Registry server. Try again after fixing your route.'
     );
 });
 
