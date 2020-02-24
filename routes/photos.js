@@ -26,8 +26,7 @@ router.get('/:id', async (req, res, next) => {
         res.json({
             status: "success",
             message: "Retrieved photo from a specific reclaim id",
-            payload: photo,
-            err: false
+            payload: photo
         })
     } catch (err) {
         handleError(err, req, res, next);

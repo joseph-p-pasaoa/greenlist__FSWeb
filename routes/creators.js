@@ -27,8 +27,7 @@ router.get('/:id', async (req, res, next) => {
         res.json({
             status: "success",
             message: "Retrieved specific creator",
-            payload: creator,
-            err: false
+            payload: creator
         })
     } catch (err) {
         handleError(err, req, res, next);
