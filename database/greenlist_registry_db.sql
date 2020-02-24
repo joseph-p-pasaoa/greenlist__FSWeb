@@ -10,12 +10,12 @@ CREATE TABLE creators
     firstname VARCHAR(25) NOT NULL,
     lastname VARCHAR(25) NOT NULL,
     password VARCHAR(50) NOT NULL,
-    about TEXT,
-    avatar_url TEXT,
-    phone_number VARCHAR(25),
+    about TEXT DEFAULT '',
+    avatar_url TEXT DEFAULT '',
+    phone_number VARCHAR(25) DEFAULT '',
     email VARCHAR(50) UNIQUE NOT NULL,
-    website_url TEXT,
-    address VARCHAR(150)
+    website_url TEXT DEFAULT '',
+    address VARCHAR(150) DEFAULT ''
 );
 
 CREATE TABLE resourcers
@@ -23,12 +23,12 @@ CREATE TABLE resourcers
     id SERIAL PRIMARY KEY,
     company VARCHAR(50) UNIQUE NOT NULL,
     password VARCHAR(50) NOT NULL,
-    about TEXT,
-    avatar_url TEXT,
-    phone_number VARCHAR(25),
+    about TEXT DEFAULT '',
+    avatar_url TEXT DEFAULT '',
+    phone_number VARCHAR(25) DEFAULT '',
     email VARCHAR(50) UNIQUE NOT NULL,
-    website_url TEXT,
-    address VARCHAR(150)
+    website_url TEXT DEFAULT '',
+    address VARCHAR(150) DEFAULT ''
 );
 
 CREATE TABLE materials

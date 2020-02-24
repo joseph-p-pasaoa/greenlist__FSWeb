@@ -25,9 +25,27 @@ const processInput = (input, location, inputName) => {
       }
       return input.trim();
 
+    case "softVarchar22":
+      if (!input || !input.trim()) {
+        return "";
+      }
+      if (input.trim().length > 22) {
+        throw new Error(`400__error: ${inputName} is too long. please shorten`);
+      }
+      return input.trim();
+
     case "hardVarchar25":
       if (!input || !input.trim()) {
         throw new Error(`400__error: empty ${inputName} input. please re-enter and try again`);
+      }
+      if (input.trim().length >=  25) {
+        throw new Error(`400__error: ${inputName} is too long. please shorten`);
+      }
+      return input.trim();
+
+    case "softVarchar25":
+      if (!input || !input.trim()) {
+        return "";
       }
       if (input.trim().length >=  25) {
         throw new Error(`400__error: ${inputName} is too long. please shorten`);
@@ -52,11 +70,11 @@ const processInput = (input, location, inputName) => {
       }
       return input.trim();
 
-    case "softVarchar22":
+    case "softVarchar150":
       if (!input || !input.trim()) {
         return "";
       }
-      if (input.trim().length > 22) {
+      if (input.trim().length >=150) {
         throw new Error(`400__error: ${inputName} is too long. please shorten`);
       }
       return input.trim();
@@ -88,6 +106,12 @@ const processInput = (input, location, inputName) => {
       }
       return input.trim();
 
+    case "softText":
+      if (!input || !input.trim()) {
+        return "";
+      }
+      return input.trim();
+
     case "multiLineText":
       if (!input) {
         throw new Error(`400__error: empty ${inputName}. Please enter a valid input`);
@@ -99,6 +123,11 @@ const processInput = (input, location, inputName) => {
         throw new Error(`404__error: invalid ${inputName} data. Please check your input`);
       }
       return input;
+
+    case "creatorPhotoUrl":
+      if (input.file) {
+        return 'http://' + input.headers.host + '/images/creators/' + input.file.filename;
+      }
 
     default:
       throw new Error("500__error: you're not supposed to be here. input not processed");

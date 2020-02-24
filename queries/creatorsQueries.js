@@ -87,18 +87,30 @@ const addCreator = async (bodyObj) => {
 
 const updateCreator = async (bodyObj) => {
   try {
-    const postQuery = `
+    let postQuery = `
       UPDATE creators
       SET username = $/username/,
           firstname = $/firstname/,
           lastname = $/lastname/,
           password = $/password/,
-          about = $/about/,
-          avatar_url = $/avatar_url/,
-          phone_number = $/phone_number/,
           email = $/email/,
-          website_url = $/website_url/,
-          address = $/address/
+    `;
+    if (bodyObj.about) {
+      postQuery += `about = $/about/,`;
+    }
+    if (bodyObj.phone_number) {
+      postQuery += `phone_number = $/phone_number/,`;
+    }
+    if (bodyObj.website_url) {
+      postQuery += `website_url = $/website_url/,`;
+    }
+    if (bodyObj.address) {
+      postQuery += `address = $/address/,`;
+    }
+    if (bodyObj.avatar_url) {
+      postQuery += `avatar_url = $/avatar_url/`;
+    }
+    postQuery += `
       WHERE id = $/id/
       RETURNING id,
           username,
