@@ -22,6 +22,7 @@
 - **LEAD Instructor:** [Alejandro Franco](https://github.com/alejo4373)
 - **IA:** [Jung Rae Jang](https://github.com/jungraejang)
 - **IA:** [Wynter Reid](https://github.com/wynterreid)
+- **Program Manager:** Dessa Shepherd
 
 ## Industry Advisors
 
@@ -32,9 +33,9 @@
 
 ## Developers' Notes
 
-![database schema](./readme/database-schema.png)
-
 ### **I. Database SCHEMA**
+
+![database schema](./readme/database-schema.png)
 
   - **Creators**
     - id
@@ -51,38 +52,41 @@
 
   - **Resourcers**
     - id
-    - company_name - _Unique, Not Null_
+    - company - _Unique, Not Null_
+    - password - _Not Null_
     - about
     - avatar_url
-    - phone number
+    - phone_number
     - email - _Unique, Not Null_
     - website_url
     - address
-
-  - **Products**
-    - id
-    - name - _Not Null_
-    - body - _Not Null_
-    - resourcer_id - _References Resourcers + On Delete Cascade_
-    - material_id - _References Materials_
-
-  - **Reclaims**
-    - id
-    - name - _Not Null_
-    - quantity - _Not Null_
-    - body - _Not Null_
-    - creator_id - _References Creators + On Delete Cascade_
-    - is_need - _Boolean_
 
   - **Materials**
     - id
     - name - _Not Null_
     - description - _Not Null_
+    - photo_url
+
+  - **Products**
+    - id
+    - name - _Not Null_
+    - body - _Not Null_
+    - resourcers_id - _References Resourcers + On Delete Cascade_
+    - material_id - _References Materials_
+
+  - **Reclaims**
+    - id
+    - name - _Not Null_
+    - quantity_num - _Not Null_
+    - quantity_label - _Not Null_
+    - time_created
+    - body - _Not Null_
+    - creator_id - _References Creators + On Delete Cascade_
+    - is_need - _Boolean_
+
 
   - **Photos**
     - id
-    - title - _Not Null_
-    - caption
     - photo_url - _Not Null_
     - reclaim_id - _References Reclaims + On Delete Cascade_
 
