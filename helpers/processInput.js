@@ -16,16 +16,14 @@ const processInput = (input, location, inputName) => {
       }
       return parseInt(input);
 
-      case "hardVarchar22":
-        if (!input || !input.trim()) {
-          throw new Error(`400__error: empty ${inputName} input. please re-enter and try again`);
-        }
-        if (input.trim().length >= 22) {
-          throw new Error(`400__error: ${inputName} is too long. please shorten`);
-        }
-        return input.trim();
-  
-
+    case "hardVarchar22":
+      if (!input || !input.trim()) {
+        throw new Error(`400__error: empty ${inputName} input. please re-enter and try again`);
+      }
+      if (input.trim().length >= 22) {
+        throw new Error(`400__error: ${inputName} is too long. please shorten`);
+      }
+      return input.trim();
 
     case "hardVarchar25":
       if (!input || !input.trim()) {
@@ -36,7 +34,7 @@ const processInput = (input, location, inputName) => {
       }
       return input.trim();
 
-      case "hardVarchar50":
+    case "hardVarchar50":
       if (!input || !input.trim()) {
         throw new Error(`400__error: empty ${inputName} input. please re-enter and try again`);
       }
@@ -45,16 +43,14 @@ const processInput = (input, location, inputName) => {
       }
       return input.trim();
 
-
-      case "hardVarchar150":
-        if (!input || !input.trim()) {
-          throw new Error(`400__error: empty ${inputName} input. please re-enter and try again`);
-        }
-        if (input.trim().length >=150) {
-          throw new Error(`400__error: ${inputName} is too long. please shorten`);
-        }
-        return input.trim();
-
+    case "hardVarchar150":
+      if (!input || !input.trim()) {
+        throw new Error(`400__error: empty ${inputName} input. please re-enter and try again`);
+      }
+      if (input.trim().length >=150) {
+        throw new Error(`400__error: ${inputName} is too long. please shorten`);
+      }
+      return input.trim();
 
     case "softVarchar22":
       if (!input || !input.trim()) {
@@ -62,29 +58,6 @@ const processInput = (input, location, inputName) => {
       }
       if (input.trim().length > 22) {
         throw new Error(`400__error: ${inputName} is too long. please shorten`);
-      }
-      return input.trim();
-
-    case "watchStatus":
-      if (!input || !input.trim()) {
-        throw new Error(`400__error: missing ${inputName}. please check and try again`);
-      }
-      const accepted = {
-        "onRadar": true,
-        "now": true,
-        "finished": true
-      };
-      if (accepted[input.trim()] !== true) {
-        throw new Error(`400__error: unknown ${inputName}. please check and try again`);
-      }
-      return input.trim();
-
-    case "show title":
-      if (!input || !input.trim()) {
-        throw new Error(`400__error: empty ${inputName} input. please re-enter and try again`);
-      }
-      if (input.trim().length > 90) {
-        throw new Error(`400__error: ${inputName} is too long. please shorten and try again`);
       }
       return input.trim();
 
@@ -97,6 +70,7 @@ const processInput = (input, location, inputName) => {
       const lengthCheck = trimmed.length < 12; // protocol (7) + name(1) + .file format extension (4)
       const acceptable = {
         ".jpg": true,
+        "jpeg": true,
         ".png": true,
         ".gif": true,
         ".svg": true
