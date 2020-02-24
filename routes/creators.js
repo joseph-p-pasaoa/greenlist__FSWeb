@@ -1,14 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../helpers/db');
+
 const handleError = require('../helpers/handleError');
 const processInput = require('../helpers/processInput');
 const creatorsQueries = require('../queries/creatorsQueries')
 
 
+// getAllCreators
 router.get('/', async (req, res, next) => {
     try {
-        let allCreators = await creatorsQueries.getAllCreators()
+        let allCreators = await creatorsQueries.getAllCreators();
         res.json({
             status: "success",
             message: "all creators retrieved",
@@ -20,6 +21,7 @@ router.get('/', async (req, res, next) => {
 });
 
 
+// getCreatorById
 router.get('/:id', async (req, res, next) => {
     try {
         const id = processInput(req.params.id, "idNum", "creator id");
@@ -35,7 +37,6 @@ router.get('/:id', async (req, res, next) => {
 });
 
 
-
 router.post("/add/", async (req, res, next) => {
     try {
         const username = processInput(req.body.username, "hardVarchar25", "username");
@@ -49,7 +50,6 @@ router.post("/add/", async (req, res, next) => {
         const website_url = processInput(req.body.website_url, "hardText", "website url");
         const address = processInput(req.body.address, "hardVarchar150", "address");
 
-
         const response = await creatorsQueries.addCreator({ username, firstname, lastname, password, about, avatar_url, phone_number, email, website_url, address });
         res.status(201);
         res.json({
@@ -61,9 +61,6 @@ router.post("/add/", async (req, res, next) => {
         handleError(err, req, res, next);
     }
 });
-
-
-
 
 
 router.patch("/edit/:id", async (req, res, next) => {
@@ -84,7 +81,7 @@ router.patch("/edit/:id", async (req, res, next) => {
         res.status(201);
         res.json({
             status: "success",
-            message: `created '${username}' edited`,
+            message: `creator '${username}' edited`,
             payload: response
         });
     } catch (err) {
@@ -93,9 +90,4 @@ router.patch("/edit/:id", async (req, res, next) => {
 });
 
 
-
-
-
 module.exports = router;
-
-
