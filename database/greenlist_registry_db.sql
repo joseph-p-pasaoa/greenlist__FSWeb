@@ -92,7 +92,26 @@ VALUES
 INSERT INTO products
 (name, body, resourcers_id, material_id)
 VALUES
-('Organic Cotton', 'The finest organic cotton', 1, 1); 
+('Organic Cotton', 'The finest organic cotton', 1, 1);
+
+INSERT INTO reclaims
+(name, quantity_num, quantity_label, body, composition, creator_id, is_need)
+VALUES
+('Woman''s Nicole Miller Black Leather Jackets', 20, 'adult jackets', 'Nicole Miller black belted jacket with epaulets, size M, very soft, overstock', 'cowhide leather', 1, false),
+('Organic Core Wool Roving', 60, 'lbs', 'Organic Core Wool Roving, Stuffing & Filling, Undyed, Comforter, Felting, Craft Fibers, Filler, Animal Sculptures, Dryer Balls, Mulch', 'organic wool', 2, false),
+('Naked Organic Wool Roving', 100, 'kilos', 'natural white organic wool roving spinning or felting fibre, unused', 'cowhide leather', 1, false);
+
+INSERT INTO photos
+(reclaim_id, photo_url)
+VALUES
+(1, 'http://localhost:11500/images/reclaims/womCoats1.jpg'),
+(1, 'http://localhost:11500/images/reclaims/womCoats2.jpg'),
+(2, 'http://localhost:11500/images/reclaims/oWoolRoving1.jpg'),
+(2, 'http://localhost:11500/images/reclaims/oWoolRoving2.jpg'),
+(3, 'http://localhost:11500/images/reclaims/orgwoolTB1.jpg'),
+(3, 'http://localhost:11500/images/reclaims/orgwoolTB2.jpg'), -- 6
+(3, 'http://localhost:11500/images/reclaims/orgwoolTB3.jpg'),
+(3, 'http://localhost:11500/images/reclaims/orgwoolTB4.jpg');
 
 
 /* DISPLAY QUERIES */

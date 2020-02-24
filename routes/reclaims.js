@@ -1,12 +1,9 @@
 const express = require('express');
 const router = express.Router();
+
 const handleError = require('../helpers/handleError');
 const processInput = require('../helpers/processInput');
 const reclaimsQueries = require('../queries/reclaimsQueries');
-
-
-
-
 
 
 router.get('/', async (req, res, next) => {
@@ -22,9 +19,6 @@ router.get('/', async (req, res, next) => {
         handleError(err, req, res, next);
     }
 });
-
-
-
 
 
 router.get('/:id', async (req, res, next) => {
@@ -43,7 +37,6 @@ router.get('/:id', async (req, res, next) => {
 });
 
 
-
 router.post('/add/', async (req, res, next) => {
     try {
         const name = processInput(req.body.name, "hardVarchar50", "name");
@@ -53,6 +46,7 @@ router.post('/add/', async (req, res, next) => {
         const composition = processInput(req.body.composition, "hardVarchar150", "composition");
         const creator_id = processInput(req.body.creator_id, "idNum", "creator id");
         const is_need = processInput(req.body.is_need, "bool", "is need");
+
         const response = await reclaimsQueries.addReclaim({ name, quantity_num, quantity_label, body, composition,  creator_id, is_need });
         res.status(201);
         res.json({
@@ -81,9 +75,6 @@ router.delete('/delete/:id', async (req, res, next) => {
         handleError(err, req, res, next);
     }
 });
-
-
-
 
 
 module.exports = router;
