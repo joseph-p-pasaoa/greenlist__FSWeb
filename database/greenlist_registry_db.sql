@@ -95,7 +95,6 @@ VALUES
 ('Organic Cotton', 'The finest organic cotton', 1, 1); 
 
 
-
 /* DISPLAY QUERIES */
 SELECT * FROM creators;
 SELECT * FROM resourcers;
