@@ -81,6 +81,7 @@
     - quantity_label - _Not Null_
     - time_created
     - body - _Not Null_
+    - composition - _Not Null_
     - creator_id - _References Creators + On Delete Cascade_
     - is_need - _Boolean_
 
@@ -127,7 +128,7 @@
   | ------ | -------------------------- | ---------------------------- | ---------------------------------------------------------------- |
   | GET    | `/reclaims`                | Get all reclaims             | n/a                                                              |
   | GET    | `/reclaims/:resourcer_id` | Add new reclaim              | n/a                                                              |
-  | POST   | `/reclaims/add`                | ADD new reclaim              | `name`, `body`, `quantity_num`, `quantity_label`, `time_created`, `creator_id`, `is_need` |
+  | POST   | `/reclaims/add`                | ADD new reclaim              | `name`, `body`, `composition`,  `quantity_num`, `quantity_label`, `time_created`, `creator_id`, `is_need` |
   | DELETE | `/reclaims/delete/:id`            | Delete reclaim product by ID | n/a                                                              |
 
 * **Materials**
@@ -143,5 +144,5 @@
   | ------ | --------------------- | --------------------- | --------- |
   | GET    | `/photos`             | Get all photos        | n/a       |
   | GET    | `/photos/:reclaim_id` | Get all by reclaim_id | n/a       |
-  | POST   | `/photos/add/`        | Add new photo         | `title`, `caption`, `url`       |
+  | POST   | `/photos/add/`        | Add new photo         | `photo_url`, `reclaim_id` |
   | DELETE | `/photos/delete/:id`         | Delete photo          | n/a       |

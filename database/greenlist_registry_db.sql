@@ -56,6 +56,7 @@ CREATE TABLE reclaims
     quantity_label VARCHAR(25) NOT NULL,
     time_created TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     body TEXT NOT NULL,
+    composition VARCHAR(150) NOT NULL,
     creator_id INT REFERENCES creators(id) ON DELETE CASCADE,
     is_need BOOLEAN DEFAULT FALSE
 );
