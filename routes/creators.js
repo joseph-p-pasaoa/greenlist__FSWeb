@@ -8,7 +8,6 @@ const creatorsQueries = require('../queries/creatorsQueries')
 
 
 /* FILE UPLOAD */
-// set storage
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
       cb(null, './public/images/creators');
