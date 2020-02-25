@@ -42,12 +42,20 @@ router.post('/add/', async (req, res, next) => {
         const name = processInput(req.body.name, "hardVarchar50", "name");
         const quantity_num = processInput(req.body.quantity_num, "idNum", "quantity num");
         const quantity_label = processInput(req.body.quantity_label, "hardVarchar25", "quantity label");
-        const body = processInput(req.body.body, "hardVarchar25", "body");
+        const body = processInput(req.body.body, "hardText", "body");
         const composition = processInput(req.body.composition, "hardVarchar150", "composition");
         const creator_id = processInput(req.body.creator_id, "idNum", "creator id");
         const is_need = processInput(req.body.is_need, "bool", "is need");
 
-        const response = await reclaimsQueries.addReclaim({ name, quantity_num, quantity_label, body, composition,  creator_id, is_need });
+        const response = await reclaimsQueries.addReclaim({
+            name,
+            quantity_num,
+            quantity_label,
+            body,
+            composition,
+            creator_id,
+            is_need
+        });
         res.status(201);
         res.json({
             status: "success",
