@@ -1,8 +1,35 @@
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
+
 const handleError = require('../helpers/handleError');
 const processInput = require('../helpers/processInput');
 const photosQueries = require('../queries/photosQueries')
+
+
+/* FILE UPLOAD */
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, './public/images/reclaims');
+    },
+    filename: (req, file, cb) => {
+      const fileName = Date.now() + "-" + file.originalname;
+      cb(null, fileName);
+    }
+});
+  
+const fileFilter = (req, file, cb) => {
+  if ((file.mimetype).slice(0, 6) === 'image/') {
+      cb(null, true);
+  } else {
+      cb(null, false);
+  }
+}
+
+const upload = multer({
+    storage: storage,
+    fileFilter: fileFilter
+});
 
 
 router.get('/', async (req, res, next) => {
@@ -36,11 +63,10 @@ router.get('/:id', async (req, res, next) => {
 
 router.post('/add/', async (req, res, next) => {
     try {
-        const photo_url = processInput(req.body.photo_url, "softPicUrl", "photo url");
+        const photo_url = processInput(req, "reclaimPhotoUrl", "photo url");
         const reclaim_id = processInput(req.body.reclaim_id, "idNum", "reclaim id");
 
-        let response = await photosQueries.addPhoto({ photo_url, reclaim_id })
-
+        let response = await photosQueries.addPhoto({ photo_url, reclaim_id });
         res.status(201);
         res.json({
             status: "success",
@@ -57,14 +83,13 @@ router.post('/add/', async (req, res, next) => {
 router.delete('/delete/:id', async (req, res, next) => {
     try {
         const id = processInput(req.params.id, "idNum", "id");
-        let response = await photosQueries.deletePhoto(id)
+        let response = await photosQueries.deletePhoto(id);
         res.status(201);
         res.json({
             status: "success",
-            message: `photos'${id}' deleted`,
+            message: `photo.${id} deleted`,
             payload: response
         });
-
     } catch (err) {
         handleError(err, req, res, next);
     }
