@@ -106,7 +106,6 @@ const addReclaim = async (bodyObj) => {
         throw (err);
     }
     throw (err);
-  }
 }
 
 
