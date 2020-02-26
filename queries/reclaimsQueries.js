@@ -2,21 +2,45 @@ const db = require('../helpers/db');
 
 
 const getAllReclaims = async () => {
-    const getQuery = `SELECT * FROM reclaims`;
-    return await db.any(getQuery);
+  const getQuery = `SELECT * FROM reclaims`;
+  return await db.any(getQuery);
 }
 
 
 const getReclaimsById = async (id) => {
-    try {
-        const getQueryById = 'SELECT * FROM reclaims WHERE id = $/id/';
-        return await db.one(getQueryById, { id });
-    } catch (err) {
-        if (err.message === "No data returned from the query.") {
-            throw new Error(`404__error: reclaim ${id} does not exist`);
-        }
-        throw (err);
+  try {
+
+    const getQueryById =
+      `SELECT * FROM reclaims 
+        WHERE reclaims.creator_id = $/id/
+      `;
+    return await db.any(getQueryById, { id });
+  } catch (err) {
+    if (err.message === "No data returned from the query.") {
+      throw new Error(`404__error: reclaim of id:${id} does not exist`);
     }
+    throw (err);
+  }
+}
+
+
+const getSellReclaimedsById = async (id, is_need) => {
+  try {
+
+    const getQueryById =
+      `SELECT * FROM reclaims 
+      RIGHT JOIN photos ON reclaims.id = photos.reclaim_id
+      WHERE reclaims.creator_id = $/id/ AND reclaims.is_need = $/is_need/
+      ORDER BY reclaims.creator_id = $/id/
+      
+    `;
+    return await db.any(getQueryById, { id, is_need });
+  } catch (err) {
+    if (err.message === "No data returned from the query.") {
+      throw new Error(`404__error: reclaim of id:${id} does not exist`);
+    }
+    throw (err);
+  }
 }
 
 
@@ -81,6 +105,8 @@ const addReclaim = async (bodyObj) => {
         }
         throw (err);
     }
+    throw (err);
+  }
 }
 
 
@@ -102,8 +128,9 @@ const deleteReclaim = async (id) => {
 
 
 module.exports = {
-    getAllReclaims,
-    getReclaimsById,
-    addReclaim,
-    deleteReclaim
+  getAllReclaims,
+  getReclaimsById,
+  addReclaim,
+  deleteReclaim,
+  getSellReclaimedsById
 };

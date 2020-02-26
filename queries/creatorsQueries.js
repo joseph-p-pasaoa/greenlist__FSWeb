@@ -34,6 +34,7 @@ const getCreatorById = async (id) => {
             address
         FROM creators
         WHERE id = $/id/;
+        
       `;
       return await db.one(getQueryById, { id });
     } catch (err) {
@@ -146,7 +147,6 @@ const updateCreator = async (bodyObj) => {
     throw (err);
   }
 }
-
 
 module.exports = {
     getAllCreators,

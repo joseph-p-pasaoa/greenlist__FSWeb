@@ -5,8 +5,6 @@ const handleError = require("../helpers/handleError");
 const processInput = require("../helpers/processInput");
 const queries = require("../queries/resourcersQueries");
 
-// getAllResourcers: get all resourcers
-
 router.get("/", async (req, res, next) => {
   try {
     const AllResourcers = await queries.getAllResourcers();
@@ -44,7 +42,7 @@ router.post("/add", async (req, res, next) => {
       "hardVarchar25",
       "password"
     );
-    const about = processInput(req.body.about, "hardVarchar25", "about");
+    const about = processInput(req.body.about, "hardVarchar50", "about");
     const avatar_url = processInput(
       req.body.avatar_url,
       "softPicUrl",

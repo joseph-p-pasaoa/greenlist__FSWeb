@@ -92,14 +92,15 @@ VALUES
 INSERT INTO products
 (name, body, resourcers_id, material_id)
 VALUES
-('Organic Cotton', 'The finest organic cotton', 1, 1);
+('Organic Cotton', 'The finest organic cotton', 1, 1),
+('SecCotton', 'SecThe finest organic cotton', 1, 2);
 
 INSERT INTO reclaims
 (name, quantity_num, quantity_label, body, composition, creator_id, is_need)
 VALUES
 ('Woman''s Nicole Miller Black Leather Jackets', 20, 'adult jackets', 'Nicole Miller black belted jacket with epaulets, size M, very soft, overstock', 'cowhide leather', 1, false),
-('Organic Core Wool Roving', 60, 'lbs', 'Organic Core Wool Roving, Stuffing & Filling, Undyed, Comforter, Felting, Craft Fibers, Filler, Animal Sculptures, Dryer Balls, Mulch', 'organic wool', 2, false),
-('Naked Organic Wool Roving', 100, 'kilos', 'natural white organic wool roving spinning or felting fibre, unused', 'cowhide leather', 1, false);
+('Organic Core Wool Roving', 60, 'lbs', 'Organic Core Wool Roving, Stuffing & Filling, Undyed, Comforter, Felting, Craft Fibers, Filler, Animal Sculptures, Dryer Balls, Mulch', 'organic wool', 2, true),
+('Naked Organic Wool Roving', 100, 'kilos', 'natural white organic wool roving spinning or felting fibre, unused', 'cowhide leather', 2, true);
 
 INSERT INTO photos
 (reclaim_id, photo_url)
@@ -119,5 +120,5 @@ SELECT * FROM creators;
 SELECT * FROM resourcers;
 SELECT * FROM materials;
 SELECT * FROM products;
-SELECT * FROM reclaims;
+SELECT * FROM  reclaims;
 SELECT * FROM photos;

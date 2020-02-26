@@ -21,7 +21,7 @@ router.get("/", async (req, res, next) => {
 
 router.get("/:resourcers_id", async (req, res, next) => {
   try {
-    const resourcers_id = processInput(req.params.resourcers_id, "idNum", "resoucer id");
+    const resourcers_id = processInput(req.params.resourcers_id, "idNum", "resourcer id");
     console.log(resourcers_id)
     const productById = await queries.getProductById(resourcers_id);
     res.status(200);
@@ -38,7 +38,7 @@ router.get("/:resourcers_id", async (req, res, next) => {
 
 router.post("/add", async (req, res, next) => {
   try {
-    const name = processInput(req.body.name, "hardVarchar22", "name");
+    const name = processInput(req.body.name, "hardVarchar50", "name");
 
     const body = (req.body.body)
 
