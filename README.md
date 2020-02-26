@@ -23,6 +23,7 @@
 - **IA:** [Jung Rae Jang](https://github.com/jungraejang)
 - **IA:** [Wynter Reid](https://github.com/wynterreid)
 - **Program Manager:** Dessa Shepherd
+- **Mentor:** [Robert Abreu](http://www.fiveeightyeight.com/)
 
 ## Industry Advisors
 
