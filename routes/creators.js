@@ -34,6 +34,22 @@ router.get('/:id', async (req, res, next) => {
     }
 });
 
+router.post('/', async (req, res, next) => {
+    try {
+        const username = processInput(req.body.username, "hardVarchar25", "username");
+        const password = processInput(req.body.password, 'hardVarchar25', 'password')
+        let creator = await creatorsQueries.getActiveCreator(username, password)
+        res.json({
+            status: "success",
+            message: "Retrieved specific creator",
+            payload: creator
+        })
+    } catch (err) {
+        handleError(err, req, res, next);
+    }
+});
+
+
 
 
 router.post("/add/", async (req, res, next) => {
@@ -46,8 +62,8 @@ router.post("/add/", async (req, res, next) => {
         const avatar_url = processInput(req.body.avatar_url, "softPicUrl", "avatar url");
         const phone_number = processInput(req.body.phone_number, "hardVarchar25", "phone number");
         const email = processInput(req.body.email, "hardVarchar50", "email");
-        const website_url = processInput(req.body.website_url, "hardText", "website url");
-        const address = processInput(req.body.address, "hardVarchar150", "address");
+        const website_url = processInput(req.body.website_url, "softVarchar22", "website url");
+        const address = processInput(req.body.address, "softVarchar22", "address");
 
 
         const response = await creatorsQueries.addCreator({ username, firstname, lastname, password, about, avatar_url, phone_number, email, website_url, address });
