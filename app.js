@@ -29,6 +29,7 @@ const productsRouter = require('./routes/products');
 const reclaimsRouter = require('./routes/reclaims');
 const materialsRouter = require('./routes/materials');
 const photosRouter = require('./routes/photos');
+const searchRouter = require('./routes/search');
     // connects
 app.use('/creators', creatorsRouter);
 app.use('/resourcers', resourcersRouter);
@@ -36,7 +37,7 @@ app.use('/products', productsRouter);
 app.use('/reclaims', reclaimsRouter);
 app.use('/materials', materialsRouter);
 app.use('/photos', photosRouter);
-
+app.use('/search', searchRouter);
 
 /* ERROR HANDLING */
     // no-route catch
