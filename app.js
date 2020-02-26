@@ -11,7 +11,6 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
-const multer = require('multer');
 
 app.use(logger('dev'));
 app.use(express.json());
