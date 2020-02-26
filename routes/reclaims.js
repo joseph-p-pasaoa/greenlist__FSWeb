@@ -91,7 +91,7 @@ router.post('/add/', upload.array('reclaimPhotos', 12), async (req, res, next) =
         const body = processInput(req.body.body, "hardText", "body");
         const creator_id = processInput(req.body.creator_id, "idNum", "creator id");
         const is_need = processInput(req.body.is_need, "bool", "is need boolean");
-        const photo_url = processInput(req, "reclaimPhotoUrls", "photo urls");
+        const photo_url_array = processInput(req, "reclaimPhotoUrls", "photo urls");
 
         const response = await reclaimsQueries.addReclaim({
             name,
@@ -101,7 +101,7 @@ router.post('/add/', upload.array('reclaimPhotos', 12), async (req, res, next) =
             body,
             creator_id,
             is_need,
-            photo_url
+            photo_url_array
         });
         res.status(201);
         res.json({
