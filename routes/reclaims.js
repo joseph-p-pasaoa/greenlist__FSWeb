@@ -37,6 +37,27 @@ router.get('/:id', async (req, res, next) => {
 });
 
 
+
+router.get('/sellReclaimed/:id/:inNeed', async (req, res, next) => {
+    try {
+        const id = processInput(req.params.id, "idNum", "reclaim id");
+        console.log(id)
+        const is_need = processInput(req.params.inNeed, "bool", "is_need");
+        console.log(is_need)
+        const reclaimById = await reclaimsQueries.getSellReclaimedsById(id, is_need);
+        res.status(200);
+        res.json({
+            status: "success",
+            message: `reclaim ${id} retrieved`,
+            payload: reclaimById
+        });
+    } catch (err) {
+        handleError(err, req, res, next);
+    }
+});
+
+
+
 router.post('/add/', async (req, res, next) => {
     try {
         const name = processInput(req.body.name, "hardVarchar50", "name");
@@ -47,7 +68,7 @@ router.post('/add/', async (req, res, next) => {
         const creator_id = processInput(req.body.creator_id, "idNum", "creator id");
         const is_need = processInput(req.body.is_need, "bool", "is need");
 
-        const response = await reclaimsQueries.addReclaim({ name, quantity_num, quantity_label, body, composition,  creator_id, is_need });
+        const response = await reclaimsQueries.addReclaim({ name, quantity_num, quantity_label, body, composition, creator_id, is_need });
         res.status(201);
         res.json({
             status: "success",
@@ -62,8 +83,7 @@ router.post('/add/', async (req, res, next) => {
 
 router.delete('/delete/:id', async (req, res, next) => {
     try {
-        const id =  processInput(req.params.id, "idNum", "id");
-    
+        const id = processInput(req.params.id, "idNum", "id")
         const response = await reclaimsQueries.deleteReclaim(id);
         res.status(201);
         res.json({

@@ -14,9 +14,10 @@ const getProductById = async (resourcers_id) => {
     const getQuery = `
         SELECT *
         FROM products
+        JOIN materials ON products.material_id = materials.id
         WHERE resourcers_id = $/resourcers_id/;
       `;
-    return await db.one(getQuery, { resourcers_id });
+    return await db.any(getQuery, { resourcers_id });
   } catch (err) {
     if (err.message === "No data returned from the query.") {
       throw new Error(
