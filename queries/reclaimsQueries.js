@@ -24,7 +24,7 @@ const addReclaim = async (bodyObj) => {
     try {
         // combining two separate insertions into one channeled task using db.task
         return await db.task(async t => {
-            const postRecaimQuery = `
+            const postReclaimQuery = `
                 INSERT INTO reclaims (name,
                     quantity_num,
                     quantity_label,
@@ -41,7 +41,7 @@ const addReclaim = async (bodyObj) => {
                 )
                 RETURNING *;
             `;
-            const reclaimResponse = await t.one(postRecaimQuery, bodyObj);
+            const reclaimResponse = await t.one(postReclaimQuery, bodyObj);
 
             // if no attached photo, return response
             if (bodyObj.photo_url === "") {
