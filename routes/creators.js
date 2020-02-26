@@ -62,6 +62,22 @@ router.get('/:id', async (req, res, next) => {
     }
 });
 
+router.post('/', async (req, res, next) => {
+    try {
+        const username = processInput(req.body.username, "hardVarchar25", "username");
+        const password = processInput(req.body.password, 'hardVarchar25', 'password')
+        let creator = await creatorsQueries.getActiveCreator(username, password)
+        res.json({
+            status: "success",
+            message: "Retrieved specific creator",
+            payload: creator
+        })
+    } catch (err) {
+        handleError(err, req, res, next);
+    }
+});
+
+
 
 router.post("/add/", upload.single("creator"), async (req, res, next) => {
     try {
