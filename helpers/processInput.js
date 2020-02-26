@@ -130,11 +130,13 @@ const processInput = (input, location, inputName) => {
       }
       return "";
 
-    case "reclaimPhotoUrl":
-      if (input.file) {
-        return 'http://' + input.headers.host + '/images/reclaims/' + input.file.filename;
+    case "reclaimPhotoUrls":
+      if (input.files) {
+        return input.files.map(file => {
+            return 'http://' + input.headers.host + '/images/reclaims/' + file.filename;
+        });
       }
-      return "";
+      return [];
 
     default:
       throw new Error("500__error: you're not supposed to be here. input not processed");

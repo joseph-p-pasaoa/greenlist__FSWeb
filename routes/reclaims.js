@@ -82,7 +82,7 @@ router.get('/sellReclaimed/:id/:inNeed', async (req, res, next) => {
 });
 
 
-router.post('/add/', upload.single('reclaimPhoto'), async (req, res, next) => {
+router.post('/add/', upload.array('reclaimPhotos', 12), async (req, res, next) => {
     try {
         const name = processInput(req.body.name, "hardVarchar50", "name");
         const composition = processInput(req.body.composition, "hardVarchar150", "composition");
@@ -91,7 +91,7 @@ router.post('/add/', upload.single('reclaimPhoto'), async (req, res, next) => {
         const body = processInput(req.body.body, "hardText", "body");
         const creator_id = processInput(req.body.creator_id, "idNum", "creator id");
         const is_need = processInput(req.body.is_need, "bool", "is need boolean");
-        const photo_url = processInput(req, "reclaimPhotoUrl", "photo url");
+        const photo_url = processInput(req, "reclaimPhotoUrls", "photo urls");
 
         const response = await reclaimsQueries.addReclaim({
             name,
