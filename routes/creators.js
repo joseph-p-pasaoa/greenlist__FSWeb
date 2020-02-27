@@ -79,7 +79,7 @@ router.post('/', async (req, res, next) => {
 
 
 
-router.post("/add/", upload.single("creator"), async (req, res, next) => {
+router.post("/add", upload.single('avatarFile'), async (req, res, next) => {
     try {
         const username = processInput(req.body.username, "hardVarchar25", "username");
         const firstname = processInput(req.body.firstname, "hardVarchar25", "firstname");
@@ -92,7 +92,18 @@ router.post("/add/", upload.single("creator"), async (req, res, next) => {
         const address = processInput(req.body.address, "softVarchar150", "address");
         const avatar_url = processInput(req, "creatorPhotoUrl", "avatar url");
 
-        const response = await creatorsQueries.addCreator({ username, firstname, lastname, password, about, avatar_url, phone_number, email, website_url, address });
+        const response = await creatorsQueries.addCreator({
+          username,
+          firstname,
+          lastname,
+          password,
+          email,
+          about,
+          phone_number,
+          website_url,
+          address,
+          avatar_url
+        });
         res.status(201);
         res.json({
             status: "success",

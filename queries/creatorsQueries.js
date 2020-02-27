@@ -61,7 +61,18 @@ const getActiveCreator = async (username, password) =>{
 const addCreator = async (bodyObj) => {
     try {
       const postQuery = `
-        INSERT INTO creators (username, firstname, lastname, password, about, avatar_url, phone_number, email, website_url, address)
+        INSERT INTO creators (
+            username,
+            firstname,
+            lastname,
+            password,
+            about,
+            avatar_url,
+            phone_number,
+            email,
+            website_url,
+            address
+        )
         VALUES (
             $/username/,
             $/firstname/,
