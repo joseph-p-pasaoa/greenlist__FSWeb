@@ -22,7 +22,6 @@ router.get("/", async (req, res, next) => {
 router.get("/:resourcers_id", async (req, res, next) => {
   try {
     const resourcers_id = processInput(req.params.resourcers_id, "idNum", "resourcer id");
-    console.log(resourcers_id)
     const productById = await queries.getProductById(resourcers_id);
     res.status(200);
     res.json({
