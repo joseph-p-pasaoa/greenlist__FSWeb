@@ -5,7 +5,7 @@ const handleError = require("../helpers/handleError");
 const processInput = require("../helpers/processInput");
 const queries = require("../queries/searchQueries");
 
-router.get("/new", async (req, res, next) => {
+router.put("/new", async (req, res, next) => {
   try {
     const searchResult = await queries.searchNew(req.body.input);
     res.status(200);
@@ -19,7 +19,7 @@ router.get("/new", async (req, res, next) => {
   }
 });
 
-router.get("/reclaimed", async (req, res, next) => {
+router.put("/rec", async (req, res, next) => {
   try {
     const searchResult = await queries.searchReclaimed(req.body.input);
     res.status(200);
