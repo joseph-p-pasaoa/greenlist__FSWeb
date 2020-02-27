@@ -1,3 +1,7 @@
+const pgp = require('pg-promise')({ // added pgp import here for helper in add reclaims logic
+  /* initialization options */
+  capSQL: true // capitalize all generated SQL
+});
 const db = require('../helpers/db');
 
 
@@ -45,91 +49,80 @@ const getSellReclaimedsById = async (id, is_need) => {
 
 
 const addReclaim = async (bodyObj) => {
-    try {
-        // combining two separate insertions into one channeled task using db.task
-        return await db.task(async t => {
-            const postReclaimQuery = `
-                INSERT INTO reclaims (name,
-                    quantity_num,
-                    quantity_label,
-                    body,
-                    composition,
-                    creator_id
-                )
-                VALUES ($/name/,
-                    $/quantity_num/,
-                    $/quantity_label/,
-                    $/body/,
-                    $/composition/,
-                    $/creator_id/
-                )
-                RETURNING *;
-            `;
-            const reclaimResponse = await t.one(postReclaimQuery, bodyObj);
+  try {
+    // combining two separate insertions into one channeled task using db.task
+    return await db.task(async t => {
+        const postReclaimQuery = `
+            INSERT INTO reclaims (name,
+                quantity_num,
+                quantity_label,
+                body,
+                composition,
+                creator_id
+            )
+            VALUES ($/name/,
+                $/quantity_num/,
+                $/quantity_label/,
+                $/body/,
+                $/composition/,
+                $/creator_id/
+            )
+            RETURNING *;
+        `;
+        const reclaimResponse = await t.one(postReclaimQuery, bodyObj);
 
-            // if no attached photo, return response
-            if (bodyObj.photo_url === "") {
-              return reclaimResponse;
-            } else {
+        // if no attached photo, return response
+        if (bodyObj.photo_url_array.length <= 0) {
+          return reclaimResponse;
+        } else {
 
-              // use new reclaim id from reclaim response to add to photos table
-              const newReclaimId = reclaimResponse.id;
-              const postPhotoQuery = `
-                  INSERT INTO photos (photo_url,
-                      reclaim_id
-                  )
-                  VALUES ($/photo_url/,
-                      $/newReclaimId/
-                  )
-                  RETURNING *;
-              `;
-              const photoResponse = await t.one(postPhotoQuery, { photo_url: bodyObj.photo_url, newReclaimId });
+          // use new reclaim id from reclaim response and generate multi-row insert query
+          const newReclaimId = reclaimResponse.id;
+          const columns = new pgp.helpers.ColumnSet(['photo_url', 'reclaim_id'], {table: 'photos'});
+          const values = bodyObj.photo_url_array.map(photoUrl => {
+              return (
+                { photo_url: photoUrl, reclaim_id: newReclaimId }
+              );
+          });
+          const postPhotosQuery = pgp.helpers.insert(values, columns) + 'RETURNING *';
+          const photoResponse = await t.any(postPhotosQuery);
 
-              // combine responses into one detailed response
-              const combinedResponse = {
-                "reclaims.id": reclaimResponse.id,
-                ...reclaimResponse,
-                "photos.id": photoResponse.id,
-                "photos.reclaim_id": photoResponse.reclaim_id,
-                "photos.photo_url": photoResponse.photo_url
-              };
-              delete combinedResponse.id; // now redundant because of reclaims.id object key, so delete
-              return combinedResponse;
-            }
-        });
-    } catch (err) {
-        if (err.message.includes("violates unique constraint")) {
-            throw new Error(
-                `403__error: creator ${bodyObj.creator_id} does not exist`
-            );
+          // combine addPhotos response to reclaimResponse and return
+          reclaimResponse["photos"] = photoResponse;
+          return reclaimResponse;
         }
-        throw (err);
+    });
+  } catch (err) {
+    if (err.message.includes("violates unique constraint")) {
+        throw new Error(
+            `403__error: creator ${bodyObj.creator_id} does not exist`
+        );
     }
     throw (err);
 }
 
 
 const deleteReclaim = async (id) => {
-    try {
-      const deleteQuery = `
-        DELETE FROM reclaims
-        WHERE id = $/id/
-        RETURNING *;
-      `;
-      return await db.one(deleteQuery, {id});
-    } catch (err) {
-      if (err.message === "No data returned from the query.") {
-        throw new Error(`404__error: reclaim ${id} does not exist`);
-      }
-      throw (err);
+  try {
+    const deleteQuery = `
+      DELETE FROM reclaims
+      WHERE id = $/id/
+      RETURNING *;
+    `;
+    return await db.one(deleteQuery, {id});
+  } catch (err) {
+    if (err.message === "No data returned from the query.") {
+      throw new Error(`404__error: reclaim ${id} does not exist`);
     }
+    throw (err);
+  }
 }
 
 
 module.exports = {
   getAllReclaims,
   getReclaimsById,
+  getSellReclaimedsById,
   addReclaim,
-  deleteReclaim,
-  getSellReclaimedsById
+  deleteReclaim
 };
