@@ -30,7 +30,6 @@ router.get("/:resourcers_id", async (req, res, next) => {
       message: `Product of resourcer with id ${resourcers_id} retrieved`,
       payload: productById
     });
-    console.log(id)
   } catch (err) {
     handleError(err, req, res, next);
   }
@@ -86,7 +85,7 @@ router.delete("/delete/:id", async (req, res, next) => {
       message: `Product ${id} deleted`,
       payload: deletedProduct
     });
-    
+
   } catch (err) {
     handleError(err, req, res, next);
     console.log(err)

@@ -2,14 +2,13 @@ const db = require("../helpers/db");
 
 const getAllResourcers = async () => {
   const getQuery = `
-      SELECT
-      resourcers.company,
-      array_agg(materials.name) AS materials
+      SELECT resourcers.id,
+          resourcers.company,
+          array_agg(materials.name) AS materials
       FROM resourcers
       LEFT JOIN products ON resourcers.id = products.resourcers_id
       LEFT JOIN materials ON products.material_id = materials.id
-      GROUP BY resourcers.company
-      ;
+      GROUP BY resourcers.id;
     `;
   return await db.any(getQuery);
 };
