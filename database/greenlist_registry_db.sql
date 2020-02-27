@@ -54,16 +54,11 @@ CREATE TABLE reclaims
     name VARCHAR(50) NOT NULL,
     quantity_num INT NOT NULL,
     quantity_label VARCHAR(25) NOT NULL,
-    time_created TIMESTAMP
-    WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    time_created TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     body TEXT NOT NULL,
-    composition VARCHAR
-    (150) NOT NULL,
-    creator_id INT REFERENCES creators
-    (id) ON
-    DELETE CASCADE,
-    is_need BOOLEAN
-    DEFAULT FALSE
+    composition VARCHAR(150) NOT NULL,
+    creator_id INT REFERENCES creators(id) ON DELETE CASCADE,
+    is_need BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE photos
@@ -131,5 +126,5 @@ SELECT * FROM creators;
 SELECT * FROM resourcers;
 SELECT * FROM materials;
 SELECT * FROM products;
-SELECT * FROM  reclaims;
+SELECT * FROM reclaims;
 SELECT * FROM photos;
