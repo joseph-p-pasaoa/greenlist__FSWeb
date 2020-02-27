@@ -4,18 +4,13 @@ const db = require('../helpers/db');
 const getAllCreators = async () => {
     const getQuery = `
       SELECT creators.id,
-          username,
           firstname,
           lastname,
-          about,
-          avatar_url,
-          phone_number,
-          email,
-          website_url,
-          address,
-          reclaims.composition
+          array_agg(distinct concat(reclaims.composition)) AS materials,
+          COUNT (reclaims.id)
       FROM creators
-      JOIN reclaims ON creators.id = reclaims.creator_id;
+      LEFT JOIN reclaims ON creators.id = reclaims.creator_id
+      GROUP BY creators.id;
     `;
     return await db.any(getQuery);
 }
