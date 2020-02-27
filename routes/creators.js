@@ -62,20 +62,52 @@ router.get('/:id', async (req, res, next) => {
     }
 });
 
-router.post('/', async (req, res, next) => {
+// getCreatorByLogin
+router.post('/auth', async (req, res, next) => {
     try {
         const username = processInput(req.body.username, "hardVarchar25", "username");
-        const password = processInput(req.body.password, 'hardVarchar25', 'password')
-        let creator = await creatorsQueries.getActiveCreator(username, password)
-        res.json({
-            status: "success",
-            message: "Retrieved specific creator",
-            payload: creator
-        })
+        const password = processInput(req.body.password, "hardVarchar50", "password");
+        let response = await creatorsQueries.getCreatorByLogin(username);
+        if (response.password === password) {
+            const { id, username, avatar_url } = response;
+            res.json({
+                status: "success",
+                message: `creator ${username} has logged in`,
+                payload: {
+                    id, username, avatar_url
+                }
+            });
+        } else {
+            res.json({
+                status: "fail",
+                message: "unable to authorize user",
+                payload: null
+            });
+        }
     } catch (err) {
-        handleError(err, req, res, next);
+        res.json({
+            status: "fail",
+            message: "unable to authorize user",
+            payload: err.message
+        });
     }
 });
+
+// POSSIBLY NOW UNUSED?
+// router.post('/', async (req, res, next) => {
+//     try {
+//         const username = processInput(req.body.username, "hardVarchar25", "username");
+//         const password = processInput(req.body.password, 'hardVarchar25', 'password')
+//         let creator = await creatorsQueries.getActiveCreator(username, password)
+//         res.json({
+//             status: "success",
+//             message: "Retrieved specific creator",
+//             payload: creator
+//         })
+//     } catch (err) {
+//         handleError(err, req, res, next);
+//     }
+// });
 
 
 
@@ -111,7 +143,12 @@ router.post("/add", upload.single('avatarFile'), async (req, res, next) => {
             payload: response
         });
     } catch (err) {
-        handleError(err, req, res, next);
+        console.log(err);
+        res.json({
+            status: "fail",
+            message: "unable to create user",
+            payload: err.message
+        });
     }
 });
 

@@ -42,17 +42,34 @@ const getCreatorById = async (id) => {
     }
 }
 
-const getActiveCreator = async (username, password) =>{
+const getCreatorByLogin = async (username) => {
   try {
-    const getQueryByActive = '  SELECT * FROM creators WHERE username = $/username/ AND password = $/password/ '
-   return await db.one(getQueryByActive, {username, password})
-  } catch (err){
-    if (err.message === "No data returned from the query.") {
-      throw new Error(`404__error: creator ${username} does not exist`);
+    const creatorByLogin = `
+      SELECT id,
+          username,
+          password,
+          avatar_url
+      FROM creators
+      WHERE username = $/username/;
+    `;
+    return await db.one(creatorByLogin, {username});
+  } catch (err) {
+    throw (err);
   }
-  throw (err);
 }
-}
+
+// POSSIBLY NOW UNUSED?
+// const getActiveCreator = async (username, password) =>{
+//   try {
+//     const getQueryByActive = '  SELECT * FROM creators WHERE username = $/username/ AND password = $/password/ '
+//    return await db.one(getQueryByActive, {username, password})
+//   } catch (err){
+//     if (err.message === "No data returned from the query.") {
+//       throw new Error(`404__error: creator ${username} does not exist`);
+//     }
+//     throw (err);
+//   }
+// }
 
 
 const addCreator = async (bodyObj) => {
@@ -161,5 +178,6 @@ module.exports = {
     getCreatorById,
     addCreator,
     updateCreator,
-    getActiveCreator
+    // getActiveCreator,
+    getCreatorByLogin
 };
