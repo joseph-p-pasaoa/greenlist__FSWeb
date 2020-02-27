@@ -78,7 +78,7 @@ CREATE TABLE reclaims
     INSERT INTO creators
         (username, firstname, lastname, password, about, avatar_url, phone_number, email, website_url, address)
     VALUES
-        ('FashionitaAransa', 'Aransa', 'Garcia', '123', 'Desginer that loves reusing and recycling! All about that sustainable lifestyle', 'http://localhost:11500/images/creators/fashionistaAransa.svg', '(000)000-0001', 'aransagarcia@pursuit.org', 'aransa.com', 'New York, NY'),
+        ('FashionistaAransa', 'Aransa', 'Garcia', '123', 'Desginer that loves reusing and recycling! All about that sustainable lifestyle', 'http://localhost:11500/images/creators/fashionistaAransa.svg', '(000)000-0001', 'aransagarcia@pursuit.org', 'aransa.com', 'New York, NY'),
 
         ('ElectricTom', 'Sergio', 'Salama', '123', 'I design the best and use the best', 'http://localhost:11500/images/creators/electricTom.png', '(000)-000-0003', 'sergiosalama@pursuit.org', 'electricsTom.com', 'NYU Campus');
 
@@ -87,15 +87,15 @@ CREATE TABLE reclaims
     VALUES
         ('Organic Cotton Plus', '123', 'Organic Cotton Plus sets aside organic cotton bales to create 100% certified fabrics for individuals and small businesses.', 'http://localhost:11500/images/resourcers/OrganicCottonPlus.jpg', '(855) SEW-PURE', 'customerservice@organiccottonplus.com', 'https://organiccottonplus.com/', 'USA'),
 
-        ('DiscoveryKnitting', '123', 'All knits are first quality repeatable fabrics that are manufactured at our mill.', 'https://wendyward.files.wordpress.com/2018/04/pic10-web1.jpg', '(917)-692-2406', 'usa@discoveryknitting.co.uk', 'https://discoveryknitting.co.uk/', 'UK'),
+        ('DiscoveryKnitting', '123', 'All our organic yarns are GOTS ceritified', 'https://wendyward.files.wordpress.com/2018/04/pic10-web1.jpg', '(917)-692-2406', 'usa@discoveryknitting.co.uk', 'https://discoveryknitting.co.uk/', 'UK'),
 
         ('Honeybegood', '123', 'Dedicated to promoting organic and sustainable fabric for the quilting and sewing arts', 'http://localhost:11500/images/resourcers/honeyBeGood.jpg', '(000)-000-0007', 'buzz@honeybegood.com', 'https://www.honeybegood.com/', 'Winsted, Connecticut'),
 
         ('MoodFabrics', '123', 'NYC shop that sells orangic fabrics such as organic linen, silk and cotton', 'http://localhost:11500/images/resourcers/moodFabrics.jpg', '(212)-730-5003', 'INFO@MOODFABRICS.COM', 'https://www.moodfabrics.com/', '225 W 37th St 3rd floor, New York, NY 10018'),
 
-        ('Organic Fabric Company', '123', 'All of our fabric is certified organic and none of it contains any polyester, bamboo, or rayon.', 'https://cdn.shopify.com/s/files/1/1222/8686/t/4/assets/logo.png?v=7450556265542851370', '(000)-000-0000', 'Hello@OrganicFabricCo.com', 'https://www.organicfabriccompany.com/', 'CA'),
+        ('Organic Fabric Company', '123', 'All of our fabric is certified organic and none of it contains any polyester, bamboo, or rayon.', 'http://localhost:11500/images/resourcers/organicFabricCompany.jpg', '(000)-000-0000', 'Hello@OrganicFabricCo.com', 'https://www.organicfabriccompany.com/', 'CA'),
 
-        ('Bulk Hemp WareHouse', '123', 'We aim to be a World Class Company and supplier of the best hemp fabrics and fibers tailored for your projects, products, needs and desires.', 'https://cdn8.bigcommerce.com/s-mwxz5/product_images/uploaded_images/bulk-hemp-knowledge-base.png', '(805)-410-4367', 'support (at) bulkhempwarehouse.com ', 'https://www.bulkhempwarehouse.com/', 'Pahrump, NV');
+        ('Bulk Hemp WareHouse', '123', 'We aim to be a World Class Company and supplier of the best hemp fabrics and fibers tailored for your projects, products, needs and desires.', 'http://localhost:11500/images/resourcers/bulkHempWareHouse.jpg', '(805)-410-4367', 'support (at) bulkhempwarehouse.com ', 'https://www.bulkhempwarehouse.com/', 'Pahrump, NV');
 
 
     INSERT INTO materials
@@ -115,13 +115,31 @@ CREATE TABLE reclaims
     INSERT INTO products
         (name, body, resourcers_id, material_id)
     VALUES
-        ('Organic Cotton', 'The finest organic cotton', '1', '1'),
-        ('Organic Linen', '5.6oz Natural Organic Linen Woven', '4', '3'),
-        ('100% Hemp', 'Natural 100% hemp canvas is strong and durable texture', '1', '2'),
-        ('Hemp Thread', 'Biodegradable, exo friendly, AZO-free dye, and oil free.', '1', '2'),
-        ('Quilting Cotton', '100% organic cotton fabric woven for your quilting pleasure!', '3', '1'),
-        ('Organic Linen', 'Our beautiful organic linens come from GOTS () organic ceritified flax.', '5', '3');
+        ('Light Jersey', 'Hold this fabric up to your cheek and you might never put it down! 100% GOTS Certified Organic Cotton. ', 1, 1),
 
+        ('Interlock', 'This GOTS certified interlock is soft to the touch and pleasing to the eye.', 1 , 1),
+
+        ('Natural Organic Linen Woven', 'Do something great for the earth and your wardrobe with this 100% Organic fabric', 4, 3),
+
+        ('Natural Jersey 100% Hemp', 'This fabric has a soft, silky smooth feel. Great for all sorts of apparel uses.', 1, 2),
+
+        ('Hemp Thread', 'Biodegradable, exo friendly, AZO-free dye, and oil free.', 1, 2),
+
+        ('Quilting Cotton', '100% organic cotton fabric woven for your quilting pleasure!', 3, 1),
+
+        ('Scarlet Yarn Dyed Linen', ' Beautiful organic linen! 100% organic linen. Yarn dyed with low impact dyes. Made in India.', 5, 3),
+
+        ('Mauve Yarn Dye Linen', 'Beautiful soft color! 100% organic linen. Yarn dyed with low impact dyes. Made in India.', 5, 3),
+
+        ('Breton Stripe Jersey Ecru/Navy', '70% Organic Cotton 30% Combed Cotton', 2, 1),
+
+        ('Breton Stripe Jersey Ecru/Red', '70% Organic Cotton 30% Combed Cotton', 2, 1),
+
+        ('Maiori Pink Bullseye Organic Cotton Pique', 'You''ll be lookinbg pretty pink in a piece made of this! Mood''s Maiori collection is a wonderful choice for classic polos, midi skirts, charming blazers and more', 4, 1),
+
+        ('Maiori Mint Bullseye Organic Cotton Pique', 'Keep youre stytle in mintt condition with Maiori Mint Bullseye! Mood''s Maiori collection is a wonderful choice for classic polos, midi skirts, charming blazers and more ', 4, 1),
+
+        ('Maiori Beige Bullseye Organic Cotton Pique', ' There''s nothing more drab about this Maiori Deige Bullseye! Mood''s Maiori collection is a wonderful choice for classic polos, midi skirts, charming blazers and more', 4, 1);
 
     INSERT INTO reclaims
         (name, quantity_num, quantity_label, body, composition, creator_id, is_need)
@@ -132,9 +150,11 @@ CREATE TABLE reclaims
 
         ('Naked Organic Wool Roving', 100, 'kilos', 'natural white organic wool roving spinning or felting fibre, unused', 'cowhide leather', 1, false),
 
-        ('Distressed Vintage jeans', 15, 'pairs', 'Vintage distressed relaxed jeans, size M', 'cotton', '1', false),
+        ('Distressed Vintage jeans', 15, 'pairs', 'Vintage distressed relaxed jeans, size M', 'cotton', 1, false),
 
-        ('Light Blue Levis', 20, 'pairs', 'These are great vintage light blue jeans. Size Medium', 'cotton ', '2' , false);
+        ('Light Blue Levis', 20, 'pairs', 'These are great vintage light blue jeans. size M', 'cotton ', 2 , false),
+
+        ('Vintage Denim Jackets from 1970s', 30, 'adult jackets', 'Really nice vintage denim jacket, size M men', 'denim, 100% cotton ', 2, false);
 
 
 
@@ -151,12 +171,15 @@ CREATE TABLE reclaims
         (3, 'http://localhost:11500/images/reclaims/orgwoolTB3.jpg'),
         (3, 'http://localhost:11500/images/reclaims/orgwoolTB4.jpg'),
 
-        (4, 'http://localhost:11500/images/reclaims/lightBlueJeans1.jpg'),
-        (4, 'http://localhost:11500/images/reclaims/lightBlueJeans2.jpg'),
+        (4, 'http://localhost:11500/images/reclaims/distressedJeans1.jpg'),
+        (4, 'http://localhost:11500/images/reclaims/distressedJeans2.jpg'),
 
-        (5, 'https://i.etsystatic.com/12063579/r/il/623446/1785094617/il_794xN.1785094617_2gja.jpg' ),
-        
-        (5, 'https://i.etsystatic.com/12063579/r/il/8da0b3/1737637550/il_1588xN.1737637550_s1zz.jpg');
+        (5, 'http://localhost:11500/images/reclaims/lightBlueLevis1.jpg' ),
+        (5, 'http://localhost:11500/images/reclaims/lightBlueLevis2.jpg'),
+
+        (6, 'http://localhost:11500/images/reclaims/denimJacket1.jpg'),
+        (6, 'http://localhost:11500/images/reclaims/denimJacket2.jpg'),
+        (6, 'http://localhost:11500/images/reclaims/denimJacket3.jpg');
 
 
     /* DISPLAY QUERIES */
