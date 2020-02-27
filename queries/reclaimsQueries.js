@@ -99,6 +99,7 @@ const addReclaim = async (bodyObj) => {
         );
     }
     throw (err);
+  }
 }
 
 
