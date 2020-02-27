@@ -152,11 +152,13 @@ CREATE TABLE reclaims
 
         ('Distressed Vintage jeans', 15, 'pairs', 'Vintage distressed relaxed jeans, size M', 'cotton', 1, false),
 
-        ('Light Blue Levis', 20, 'pairs', 'These are great vintage light blue jeans. size M', 'cotton ', 2 , false),
+        ('Light Blue Levis', 20, 'pairs', 'These are great vintage light blue jeans. size M', 'cotton', 2 , false),
 
-        ('Vintage Denim Jackets from 1970s', 30, 'adult jackets', 'Really nice vintage denim jacket, size M men', 'denim, 100% cotton ', 2, false);
+        ('Vintage Denim Jackets from 1970s', 30, 'adult jackets', 'Really nice vintage denim jacket, size M men', 'denim, 100% cotton', 2, false), 
 
+        ('Men''s Wario Cosplay Tank Top', 50, 'tees', 'Overstock! Nothing wrong with the shirts!', '99% cotton & 10% polyester', 2, false), 
 
+        ('Mario Cosplay Hoodie', 20, 'adult hoodies', 'unused hoodies size L', '50% cotton & 50% polyester', 2, false);
 
     INSERT INTO photos
         (reclaim_id, photo_url)
@@ -179,7 +181,9 @@ CREATE TABLE reclaims
 
         (6, 'http://localhost:11500/images/reclaims/denimJacket1.jpg'),
         (6, 'http://localhost:11500/images/reclaims/denimJacket2.jpg'),
-        (6, 'http://localhost:11500/images/reclaims/denimJacket3.jpg');
+        (6, 'http://localhost:11500/images/reclaims/denimJacket3.jpg'),
+
+        (7, 'http://localhost:11500/images/reclaims/wario.jpg');
 
 
     /* DISPLAY QUERIES */
