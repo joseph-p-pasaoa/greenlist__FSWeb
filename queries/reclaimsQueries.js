@@ -44,9 +44,6 @@ const getSellReclaimedsById = async (id, is_need) => {
     GROUP BY reclaims.id
   `;
 
-
-
-
     return await db.any(getQueryById, { id, is_need });
   } catch (err) {
     if (err.message === "No data returned from the query.") {
