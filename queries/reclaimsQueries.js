@@ -29,17 +29,15 @@ const getReclaimsById = async (id) => {
 
 const getSellReclaimedsById = async (id, is_need) => {
   try {
-    // const getQueryById =
-    //   `SELECT * FROM reclaims 
-    //    JOIN photos ON reclaims.id = photos.reclaim_id
-    //   WHERE reclaims.creator_id = $/id/ AND reclaims.is_need = $/is_need/
-    //   ORDER BY reclaims.creator_id = $/id/
-
-    // `;
-
     const getQueryById = `
-    SELECT reclaims.* , 
-    array_agg(distinct concat(photos.photo_url)) AS photo_url
+    SELECT 
+      name,  
+      quantity_num, 
+      quantity_label , 
+      time_created,
+      body, 
+      composition,
+      array_agg(distinct concat(photos.photo_url)) AS photo_url
     FROM reclaims
     LEFT JOIN photos ON reclaims.id = photos.reclaim_id
     WHERE reclaims.creator_id = $/id/ AND reclaims.is_need = $/is_need/
