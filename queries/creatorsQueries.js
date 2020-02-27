@@ -3,7 +3,7 @@ const db = require('../helpers/db');
 
 const getAllCreators = async () => {
     const getQuery = `
-      SELECT id,
+      SELECT creators.id,
           username,
           firstname,
           lastname,
@@ -12,8 +12,10 @@ const getAllCreators = async () => {
           phone_number,
           email,
           website_url,
-          address
-      FROM creators;
+          address,
+          reclaims.composition
+      FROM creators
+      JOIN reclaims ON creators.id = reclaims.creator_id;
     `;
     return await db.any(getQuery);
 }
@@ -34,7 +36,7 @@ const getCreatorById = async (id) => {
             address
         FROM creators
         WHERE id = $/id/;
-        
+
       `;
       return await db.one(getQueryById, { id });
     } catch (err) {
