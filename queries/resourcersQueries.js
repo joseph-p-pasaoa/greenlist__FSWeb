@@ -2,8 +2,14 @@ const db = require("../helpers/db");
 
 const getAllResourcers = async () => {
   const getQuery = `
-      SELECT *
-      FROM resourcers;
+      SELECT
+      resourcers.company,
+      array_agg(materials.name) AS materials
+      FROM resourcers
+      LEFT JOIN products ON resourcers.id = products.resourcers_id
+      LEFT JOIN materials ON products.material_id = materials.id
+      GROUP BY resourcers.company
+      ;
     `;
   return await db.any(getQuery);
 };
@@ -30,7 +36,7 @@ const addResourcer = async bodyObj => {
     const postQuery = `
         INSERT INTO resourcers (company, password, about, avatar_url, phone_number,email, website_url, address)
         VALUES ($/company/
-          , $/password/, $/about/, $/avatar_url/, $/phone_number/, $/email/, 
+          , $/password/, $/about/, $/avatar_url/, $/phone_number/, $/email/,
           $/website_url/, $/address/
         ) RETURNING *;
       `;
@@ -48,8 +54,8 @@ const addResourcer = async bodyObj => {
 
 const editResourcer = async (bodyObj) => {
   try {
-    const patchQuery = `UPDATE resourcers 
-  SET 
+    const patchQuery = `UPDATE resourcers
+  SET
   company = $/company/,
   password = $/password/,
   avatar_url= $/avatar_url/,
@@ -58,7 +64,7 @@ const editResourcer = async (bodyObj) => {
   website_url= $/website_url/,
   address = $/company/
   where id = $/id/
-  RETURNING *; 
+  RETURNING *;
   `;
 
     return await db.one(patchQuery, bodyObj);
@@ -80,6 +86,6 @@ const editResourcer = async (bodyObj) => {
 module.exports = {
   getAllResourcers,
   getResourcerById,
-  addResourcer, 
+  addResourcer,
   editResourcer
 };
