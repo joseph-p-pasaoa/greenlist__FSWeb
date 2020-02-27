@@ -143,7 +143,12 @@ router.post("/add", upload.single('avatarFile'), async (req, res, next) => {
             payload: response
         });
     } catch (err) {
-        handleError(err, req, res, next);
+        console.log(err);
+        res.json({
+            status: "fail",
+            message: "unable to create user",
+            payload: err.message
+        });
     }
 });
 
