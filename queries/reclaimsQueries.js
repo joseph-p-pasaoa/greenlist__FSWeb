@@ -13,7 +13,6 @@ const getAllReclaims = async () => {
 
 const getReclaimsById = async (id) => {
   try {
-
     const getQueryById =
       `SELECT * FROM reclaims 
         WHERE reclaims.creator_id = $/id/
@@ -30,7 +29,6 @@ const getReclaimsById = async (id) => {
 
 const getSellReclaimedsById = async (id, is_need) => {
   try {
-
     const getQueryById =
       `SELECT * FROM reclaims 
       RIGHT JOIN photos ON reclaims.id = photos.reclaim_id
