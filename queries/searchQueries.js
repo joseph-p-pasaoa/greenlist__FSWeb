@@ -5,7 +5,7 @@ const searchNew = async input => {
       SELECT resourcers.id,
              resourcers.avatar_url,
              resourcers.company,
-             array_agg (materials.name) AS materials
+             array_agg (materials.name) AS materials,
              COUNT (materials.id)
       FROM resourcers
       JOIN products ON resourcers.id = products.resourcers_id
