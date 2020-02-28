@@ -72,7 +72,6 @@ router.post("/add", async (req, res, next) => {
       address
     });
     res.status(201);
-    console.log(email)
     res.json({
       status: "success",
       message: `new resoucer '${company}' added`,

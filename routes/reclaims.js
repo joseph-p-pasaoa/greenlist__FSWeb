@@ -66,9 +66,7 @@ router.get('/:id', async (req, res, next) => {
 router.get('/sellReclaimed/:id/:inNeed', async (req, res, next) => {
     try {
         const id = processInput(req.params.id, "idNum", "reclaim id");
-        console.log(id)
         const is_need = processInput(req.params.inNeed, "bool", "is_need");
-        console.log(is_need)
         const reclaimById = await reclaimsQueries.getSellReclaimedsById(id, is_need);
         res.status(200);
         res.json({

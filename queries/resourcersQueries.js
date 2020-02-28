@@ -2,14 +2,13 @@ const db = require("../helpers/db");
 
 const getAllResourcers = async () => {
   const getQuery = `
-      SELECT
-      resourcers.company,
-      array_agg(materials.name) AS materials
+      SELECT resourcers.id,
+          resourcers.company,
+          array_agg(materials.name) AS materials
       FROM resourcers
       LEFT JOIN products ON resourcers.id = products.resourcers_id
       LEFT JOIN materials ON products.material_id = materials.id
-      GROUP BY resourcers.company
-      ;
+      GROUP BY resourcers.id;
     `;
   return await db.any(getQuery);
 };
@@ -32,7 +31,6 @@ const getResourcerById = async id => {
 
 const addResourcer = async bodyObj => {
   try {
-    console.log(bodyObj);
     const postQuery = `
         INSERT INTO resourcers (company, password, about, avatar_url, phone_number,email, website_url, address)
         VALUES ($/company/
@@ -42,7 +40,6 @@ const addResourcer = async bodyObj => {
       `;
     return await db.one(postQuery, bodyObj);
   } catch (err) {
-    console.log(err);
     if (err.message.includes("violates unique constraint")) {
       throw new Error(
         `403__error: company ${bodyObj.company} already exists. Please try again with a new company.`

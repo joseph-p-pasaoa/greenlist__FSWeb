@@ -183,7 +183,9 @@ CREATE TABLE reclaims
         (6, 'http://localhost:11500/images/reclaims/denimJacket2.jpg'),
         (6, 'http://localhost:11500/images/reclaims/denimJacket3.jpg'),
 
-        (7, 'http://localhost:11500/images/reclaims/wario.jpg');
+        (7, 'http://localhost:11500/images/reclaims/wario.jpg'), 
+        
+        (8, 'http://localhost:11500/images/reclaims/mario.jpg'); 
 
 
     /* DISPLAY QUERIES */
