@@ -6,6 +6,7 @@ const getAllCreators = async () => {
       SELECT creators.id,
           firstname,
           lastname,
+          avatar_url,
           array_agg(distinct concat(reclaims.composition)) AS materials,
           COUNT (reclaims.id)
       FROM creators
