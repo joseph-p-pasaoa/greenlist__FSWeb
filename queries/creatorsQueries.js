@@ -7,11 +7,13 @@ const getAllCreators = async () => {
           firstname,
           lastname,
           avatar_url,
-          array_agg(distinct concat(reclaims.composition)) AS materials,
+          array_agg(distinct reclaims.composition ORDER BY reclaims.composition ASC ) AS materials,
           COUNT (reclaims.id)
-      FROM creators
+      FROM creators 
       LEFT JOIN reclaims ON creators.id = reclaims.creator_id
-      GROUP BY creators.id;
+      GROUP BY creators.id
+      ORDER BY  creators.id DESC
+      ;
     `;
     return await db.any(getQuery);
 }
