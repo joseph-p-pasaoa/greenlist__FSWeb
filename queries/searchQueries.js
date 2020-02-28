@@ -5,7 +5,7 @@ const searchNew = async input => {
       SELECT resourcers.id,
              resourcers.avatar_url,
              resourcers.company,
-             array_agg (materials.name) AS materials,
+             array_agg(distinct materials.name ORDER BY materials.name ASC) AS materials,
              COUNT (materials.id)
       FROM resourcers
       JOIN products ON resourcers.id = products.resourcers_id
@@ -24,7 +24,7 @@ const searchReclaimed = async input => {
              avatar_url,
              firstname,
              lastname,
-             array_agg( distinct reclaims.composition ORDER BY reclaims.composition ASC ) AS materials,
+             array_agg(distinct reclaims.composition ORDER BY reclaims.composition ASC) AS materials,
              COUNT (reclaims.id)
       FROM creators
       JOIN reclaims ON creators.id = reclaims.creator_id
