@@ -9,7 +9,7 @@ const getAllCreators = async () => {
           avatar_url,
           array_agg(distinct reclaims.composition ORDER BY reclaims.composition ASC ) AS materials,
           COUNT (reclaims.id)
-      FROM creators 
+      FROM creators
       LEFT JOIN reclaims ON creators.id = reclaims.creator_id
       GROUP BY creators.id
       ORDER BY  creators.id DESC
@@ -34,7 +34,6 @@ const getCreatorById = async (id) => {
             address
         FROM creators
         WHERE id = $/id/;
-
       `;
       return await db.one(getQueryById, { id });
     } catch (err) {
