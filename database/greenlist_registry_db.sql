@@ -78,9 +78,13 @@ CREATE TABLE reclaims
     INSERT INTO creators
         (username, firstname, lastname, password, about, avatar_url, phone_number, email, website_url, address)
     VALUES
-        ('FashionistaAransa', 'Aransa', 'Garcia', '123', 'Desginer that loves reusing and recycling! All about that sustainable lifestyle', 'http://localhost:11500/images/creators/fashionistaAransa.svg', '(000)000-0001', 'aransagarcia@pursuit.org', 'aransa.com', 'New York, NY'),
+        ('EmilyS', 'Emily', 'Smith', '123', 'I love fashion, it reveals a part of our personalities before we even say our first ''hello''', 'http://localhost:11500/images/creators/emilyS.jpg', '(347)-555-5555', 'emilysmith@pursuit.org', 'eSmith.com', 'New York, NY'),
 
-        ('ElectricTom', 'Sergio', 'Salama', '123', 'I design the best and use the best', 'http://localhost:11500/images/creators/electricTom.png', '(000)-000-0003', 'sergiosalama@pursuit.org', 'electricsTom.com', 'NYU Campus');
+        ('CarlosR', 'Carlos', 'Ramos', '123', 'Lover of fashion and expressing yourself', 'http://localhost:11500/images/creators/carlosR.jpg', '(347)-555-5555', 'carlosRamos@pursuit.org', 'carlosramos.com', 'New York, NY'),
+
+        ('HeatherW', 'Heather', 'Williams', '123', 'Happy to know that what may be deadstock to me can be repurposed!' , 'http://localhost:11500/images/creators/heatherW.jpg', '(917)-555-5555', 'heatherw@pursuit.org', 'heatherdesgins.com', 'San Franciso, CA'),
+
+        ('JacobD', 'Jacob', 'Davis', '123', 'I love experimenting with colors and patterns', 'http://localhost:11500/images/creators/jacobD.jpg', '(917)-555-5555', 'jacobdavis@pursuit.org', 'davisdesgins.com', 'San Franciso, CA');
 
     INSERT INTO resourcers
         (company, password, about, avatar_url, phone_number, email, website_url, address)
@@ -93,27 +97,31 @@ CREATE TABLE reclaims
 
         ('MoodFabrics', '123', 'NYC shop that sells orangic fabrics such as organic linen, silk and cotton', 'http://localhost:11500/images/resourcers/moodFabrics.jpg', '(212)-730-5003', 'INFO@MOODFABRICS.COM', 'https://www.moodfabrics.com/', '225 W 37th St 3rd floor, New York, NY 10018'),
 
-        ('Organic Fabric Company', '123', 'All of our fabric is certified organic and none of it contains any polyester, bamboo, or rayon.', 'http://localhost:11500/images/resourcers/organicFabricCompany.jpg', '(000)-000-0000', 'Hello@OrganicFabricCo.com', 'https://www.organicfabriccompany.com/', 'CA'),
+        ('Organic Fabric Company', '123', 'All of our fabric is certified organic and none of it contains any polyester, bamboo, or rayon.', 'http://localhost:11500/images/resourcers/organicFabricCompany.jpg', '(555)-555-5555', 'Hello@OrganicFabricCo.com', 'https://www.organicfabriccompany.com/', 'CA'),
 
         ('Bulk Hemp WareHouse', '123', 'We aim to be a World Class Company and supplier of the best hemp fabrics and fibers tailored for your projects, products, needs and desires.', 'http://localhost:11500/images/resourcers/bulkHempWareHouse.jpg', '(805)-410-4367', 'support (at) bulkhempwarehouse.com ', 'https://www.bulkhempwarehouse.com/', 'Pahrump, NV');
 
 
     INSERT INTO materials
-        (name, description, photo_url)
+        (name, description, photo_url, socialBenefit, environmentBenefit, costBenefit)
     VALUES
-        ('Organic Cotton', 'Organic cotton is the alternative to this harmful process and still creates a comfortable product', 'http://localhost:11500/images/materials/organicCotton.jpg'),
+        ('Organic Cotton', 'Organic cotton is cotton that is produced and certified to organic agricultural standards. Its production sustains the health of soils, ecosystems and people by using natural processes rather than artificial inputs. Importantly organic cotton farming does not allow the use of toxic chemicals or GMOs (genetically modified organisms). Instead, it combines tradition, innovation and science to benefit the shared environment and promote a good quality of life for all involved.', 'http://localhost:11500/images/materials/organicCotton.jpg', 'Growing organic cotton keeps farmers and their families safe. They are not exposed to toxic chemicals in the field or through their food and water supply. It also means farmers grow more than one crop which supplements their food and income', 'No toxic chemicals are used in the growing of organic cotton. It doesn’t damage the soil, has less impact on the air, and uses 88% less water and 62% less energy. Conventional cotton uses about 16% of cthe world’s insecticides and 7% of pesticides', 'Fair price for sustainablitiy. When you buy organic cotton you are investing in water conservation, cleaner air, better soil and farmer livelihoods. The price for organic cotton is therefore sometimes, but not always, higher. However, with demand on the rise, more choices will become available.'),
 
-        ('Hemp', 'This specific type of cannabis plant, does not exhaust the soil and does not require pesticides', 'http://localhost:11500/images/materials/hemp.jpeg'),
+        ('Recycled Cotton', 'Recycled cotton can be generally defined as converting cotton fabric into cotton fiber that can be reused in textile products. Recycled cotton is also commonly referred to as regenerated cotton, reclaimed cotton or shoddy. Recycled content includes recycled raw material, as well as used, reconditioned, and re-manufactured components. Textile recycling is generated from two primary sources: 1. Pre-consumer: includes scraps created by yarn and fabric by-products 2.Post-consumer: includes garments, upholstery, towels, household items to be repurposed.', 'photo_url'),
 
-        ('Organic Linen', 'Natural Fabric that is made from flax can be grown without fertilizer.', 'http://localhost:11500/images/materials/organicLinen.jpg'),
+        ('Hemp', 'Hemp is a specific type of cannabis plant that does not exhaust the soil and does not require pesticides. Not only does it not require any pesiticides it also needs little water, yet it renews the soil with each growth cycle. Its long roots prevent erosion and help retain topsoil. Hemp also grows readily in most temperate regions.', 'http://localhost:11500/images/materials/hemp.jpeg', 'Hemp is affordable, healthy, and sustainable. Not only would hemp farming allow communities to become well-fed and healthier, but it would also introduce more jobs and increase economic viability.', 'Hemp farming uses very little water (half as much as cotton), does not require the use of chemical pesticides or fertilizers, and is a readily renewable resource.', 'Hemp is less expensive to farm because of its minimal growth requirements. Hemp plants grow quickly, producing 5-10 tons of cellulose fiber pulp per acre in four months.'),
+
+        ('Organic Linen', 'Another natural fabric which has similar qualities to hemp, but is made from flax, is linen. Sadly, the way that conventional linen is produced pollutes waterways and uses harmful chemicals. However, the crop does not need to be harvested this way! In certain environments flax can be grown without fertilizer.', 'http://localhost:11500/images/materials/organicLinen.jpg', 'MISSING social', ' In the right conditions, linen can be cultivated without fertilizers and grown on marginal land that is unsuitable for food crop production. Linen is also one of the most biodegradable fabrics when untreated.', ' MISSING cost'),
 
         ('Recycled Polyester', 'Recycled polyester uses PET (the chemical used to create polyester) from plastic water bottles and breaks them down into fibers. This recycled fabric keeps plastic out of landfills and can be recycled many times over!', 'http://localhost:11500/images/materials/recycledPolyester.jpg'),
 
-        ('Reclaimed', 'Reclaimed, or deadstock, fabric is material leftover from manufacturers, vintage frabic, or any other unused fabric that is brought secondhand', 'http://localhost:11500/images/materials/reclaimed.jpg');
+        ('Reclaimed', 'Reclaimed, or deadstock, fabric is material leftover from manufacturers, vintage frabic, or any other unused fabric that is brought secondhand', 'http://localhost:11500/images/materials/reclaimed.jpg'),
+
+        ('Piñatex', 'When it comes to vegan leather alernatives, Piñatex is the material to look out for. This futuristic material is made from pineapple leaf fibre. Not only is it a cruelty-free replacement for leatther, it is natural and sustainable. Because Piñatex is made from a food, it reduces wasttte and helps the farming communities that grow the fruit!', 'kjjkj');
 
 
     INSERT INTO products
-        (name, body, resourcers_id, material_id)
+        (name, body, resourcers_id, material_id, photo_url)
     VALUES
         ('Light Jersey', 'Hold this fabric up to your cheek and you might never put it down! 100% GOTS Certified Organic Cotton. ', 1, 1),
 
@@ -154,9 +162,9 @@ CREATE TABLE reclaims
 
         ('Light Blue Levis', 20, 'pairs', 'These are great vintage light blue jeans. size M', 'cotton', 2 , false),
 
-        ('Vintage Denim Jackets from 1970s', 30, 'adult jackets', 'Really nice vintage denim jacket, size M men', 'denim, 100% cotton', 2, false), 
+        ('Vintage Denim Jackets from 1970s', 30, 'adult jackets', 'Really nice vintage denim jacket, size M men', 'denim, 100% cotton', 2, false),
 
-        ('Men''s Wario Cosplay Tank Top', 50, 'tees', 'Overstock! Nothing wrong with the shirts!', '99% cotton & 10% polyester', 2, false), 
+        ('Men''s Wario Cosplay Tank Top', 50, 'tees', 'Overstock! Nothing wrong with the shirts!', '99% cotton & 10% polyester', 2, false),
 
         ('Mario Cosplay Hoodie', 20, 'adult hoodies', 'unused hoodies size L', '50% cotton & 50% polyester', 2, false);
 
@@ -183,7 +191,8 @@ CREATE TABLE reclaims
         (6, 'http://localhost:11500/images/reclaims/denimJacket2.jpg'),
         (6, 'http://localhost:11500/images/reclaims/denimJacket3.jpg'),
 
-        (7, 'http://localhost:11500/images/reclaims/wario.jpg');
+        (7, 'http://localhost:11500/images/reclaims/wario.jpg'),
+        (8, 'http://localhost:11500/images/reclaims/wario.jpg');
 
 
     /* DISPLAY QUERIES */
