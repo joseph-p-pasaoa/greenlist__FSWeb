@@ -4,7 +4,7 @@ const getAllProducts = async () => {
   const getQuery = `
       SELECT *
       FROM products
-      
+
     `;
   return await db.any(getQuery);
 };
@@ -12,7 +12,7 @@ const getAllProducts = async () => {
 const getProductById = async (resourcers_id) => {
   try {
     const getQuery = `
-        SELECT products.*, materials.name As materials_name, materials.description, materials.photo_url
+        SELECT products.*, materials.name As materials_name, materials.description
         FROM products
         JOIN materials ON products.material_id = materials.id
         WHERE resourcers_id = $/resourcers_id/;
@@ -50,7 +50,7 @@ const addProduct = async bodyObj => {
 
 const deleteProduct = async id => {
   try {
-    const deleteQuery = `DELETE FROM products 
+    const deleteQuery = `DELETE FROM products
           WHERE id = $/id/`;
 
     return await db.none(deleteQuery, { id });
