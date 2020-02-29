@@ -12,7 +12,7 @@ const getAllProducts = async () => {
 const getProductById = async (resourcers_id) => {
   try {
     const getQuery = `
-        SELECT products.*, materials.name As materials_name, materials.description,
+        SELECT products.*, materials.name As materials_name, materials.description
         FROM products
         JOIN materials ON products.material_id = materials.id
         WHERE resourcers_id = $/resourcers_id/;
