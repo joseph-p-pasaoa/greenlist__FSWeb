@@ -4,11 +4,14 @@ const getAllResourcers = async () => {
   const getQuery = `
       SELECT resourcers.id,
           resourcers.company,
-          array_agg(materials.name) AS materials
+          resourcers.avatar_url,
+          array_agg(DISTINCT materials.name  ORDER BY  materials.name ASC) AS materials, 
+          array_agg( products.name ORDER BY products.name ASC) AS productsName
       FROM resourcers
       LEFT JOIN products ON resourcers.id = products.resourcers_id
       LEFT JOIN materials ON products.material_id = materials.id
-      GROUP BY resourcers.id;
+      GROUP BY resourcers.id
+      ORDER BY resourcers.id ASC;
     `;
   return await db.any(getQuery);
 };

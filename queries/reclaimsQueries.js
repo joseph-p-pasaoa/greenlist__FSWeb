@@ -14,7 +14,7 @@ const getAllReclaims = async () => {
 const getReclaimsById = async (id) => {
   try {
     const getQueryById =
-      `SELECT * FROM reclaims 
+      `SELECT * FROM reclaims
         WHERE reclaims.creator_id = $/id/
       `;
     return await db.any(getQueryById, { id });
@@ -30,12 +30,12 @@ const getReclaimsById = async (id) => {
 const getSellReclaimedsById = async (id, is_need) => {
   try {
     const getQueryById = `
-    SELECT 
-      name,  
-      quantity_num, 
-      quantity_label , 
+    SELECT reclaims.id,
+      name,
+      quantity_num,
+      quantity_label ,
       time_created,
-      body, 
+      body,
       composition,
       array_agg(distinct concat(photos.photo_url)) AS photo_url
     FROM reclaims

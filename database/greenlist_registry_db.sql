@@ -214,7 +214,6 @@ CREATE TABLE reclaims
         (10, 'http://localhost:11500/images/reclaims/vkskirt4.jpg' );
 
 
-
     /* DISPLAY QUERIES */
     SELECT *
     FROM creators;
