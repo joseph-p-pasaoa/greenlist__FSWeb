@@ -134,7 +134,7 @@ CREATE TABLE reclaims
 
         ('Natural Jersey 100% Hemp', 'This fabric has a soft, silky smooth feel. Great for all sorts of apparel uses.', 1, 2, 'http://localhost:11500/images/products/naturalhemp_OrganicCottonPlus.jpg'),
 
-        ('Hemp Thread', 'Biodegradable, exo friendly, AZO-free dye, and oil free.', 1, 2, 'http://localhost:11500/images/products/naturalhemp_OrganicCottonPlus'),
+        ('Hemp Thread', 'Biodegradable, exo friendly, AZO-free dye, and oil free.', 1, 2, 'http://localhost:11500/images/products/naturalhemp_OrganicCottonPlus.jpg'),
 
         ('A House in Bloom: Quilting Cotton', '100% organic cotton fabric woven for your quilting pleasure!', 3, 1, 'http://localhost:11500/images/products/honeyBgood.jpg'),
 
