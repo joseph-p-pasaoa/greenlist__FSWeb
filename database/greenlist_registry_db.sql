@@ -128,13 +128,13 @@ CREATE TABLE reclaims
     VALUES
         ('Light Jersey', 'Hold this fabric up to your cheek and you might never put it down! 100% GOTS Certified Organic Cotton. ', 1, 1, 'http://localhost:11500/images/products/lightJersey_OrganicCottonPlus.jpg'),
 
-        ('Interlock', 'This GOTS certified interlock is soft to the touch and pleasing to the eye. You''ll appreciate its slight stretch and great rebound. Made in India.', 1 , 1, 'http://localhost:11500/images/products/interlock_OrganicCottonPlus'),
+        ('Interlock', 'This GOTS certified interlock is soft to the touch and pleasing to the eye. You''ll appreciate its slight stretch and great rebound. Made in India.', 1 , 1, 'http://localhost:11500/images/products/interlock_OrganicCottonPlus.jpg'),
 
         ('Natural Organic Linen Woven', 'Do something great for the earth and your wardrobe with this 100% Organic fabric', 4, 3, 'http://localhost:11500/images/products/naturalOrganicLinen_moodFabrics.jpg'),
 
         ('Natural Jersey 100% Hemp', 'This fabric has a soft, silky smooth feel. Great for all sorts of apparel uses.', 1, 2, 'http://localhost:11500/images/products/naturalhemp_OrganicCottonPlus.jpg'),
 
-        ('Hemp Thread', 'Biodegradable, exo friendly, AZO-free dye, and oil free.', 1, 2, 'http://localhost:11500/images/products/naturalhemp_OrganicCottonPlus'),
+        ('Hemp Thread', 'Biodegradable, exo friendly, AZO-free dye, and oil free.', 1, 2, 'http://localhost:11500/images/products/naturalhemp_OrganicCottonPlus.jpg'),
 
         ('A House in Bloom: Quilting Cotton', '100% organic cotton fabric woven for your quilting pleasure!', 3, 1, 'http://localhost:11500/images/products/honeyBgood.jpg'),
 
