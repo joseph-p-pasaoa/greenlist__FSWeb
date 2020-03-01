@@ -128,7 +128,7 @@ CREATE TABLE reclaims
     VALUES
         ('Light Jersey', 'Hold this fabric up to your cheek and you might never put it down! 100% GOTS Certified Organic Cotton. ', 1, 1, 'http://localhost:11500/images/products/lightJersey_OrganicCottonPlus.jpg'),
 
-        ('Interlock', 'This GOTS certified interlock is soft to the touch and pleasing to the eye. You''ll appreciate its slight stretch and great rebound. Made in India.', 1 , 1, 'http://localhost:11500/images/products/interlock_OrganicCottonPlus'),
+        ('Interlock', 'This GOTS certified interlock is soft to the touch and pleasing to the eye. You''ll appreciate its slight stretch and great rebound. Made in India.', 1 , 1, 'http://localhost:11500/images/products/interlock_OrganicCottonPlus.jpg'),
 
         ('Natural Organic Linen Woven', 'Do something great for the earth and your wardrobe with this 100% Organic fabric', 4, 3, 'http://localhost:11500/images/products/naturalOrganicLinen_moodFabrics.jpg'),
 
