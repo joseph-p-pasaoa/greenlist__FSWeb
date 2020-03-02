@@ -78,7 +78,7 @@ We see Greenlist as an app that can be implemented sooner rather than later into
   $ cd database
   $ psql -f greenlist_registry_db.sql
   ```
-+ To run the full stack of Greenlist, install the [front end](https://github.com/joseph-p-pasaoa/bingebook_frontE__FullStack) locally afterwards, as well, in a separate folder using npm:
++ To run the full stack of Greenlist, install the [front end](https://github.com/joseph-p-pasaoa/greenlistRegistry_front__Web) locally afterwards, as well, in a separate folder using npm:
   ```
   $ npm install
   $ npm start
