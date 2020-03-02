@@ -1,16 +1,29 @@
 # Greenlist Registry (back end) (full-stack app)
 
-## Table of Contents
+Designers, especially independent and small designers, lack a centralized resource to find, research, and even discover eco-friendly sustainable materials they can use.
 
-- [Database Schema](#i-database-schema)
-- [Endpoints](#ii-endpoints)
+Greenlist Registry aims to be an official registry, directory, and forum for designers and brands to find providers and suppliers of green materials. As well as serve as a networking vessel for material reclaim.
 
-## Repos
+We see Greenlist as an app that can be implemented sooner rather than later into the fashion ecosystem and it would fill a large gap in the workflow of independent designers and small businesses.
+
+---
+
+### _Table of Contents_
+
+- [Technologies Implemented](#i-technologies-implemented)
+- [Setup](#ii-setup)
+- [Developer's To Dos](#iii-to-do)
+- [Presentation Slides](#iv-presentation-slides)
+- [Database Schema](#v-database-schema)
+- [Endpoints](#vi-endpoints)
+- [Wireframes](#vii-wireframes)
+
+### _Repos_
 
 - [Back End](https://github.com/joseph-p-pasaoa/greenlistRegistry_back__Web) (this repo)
 - [Front End](https://github.com/joseph-p-pasaoa/greenlistRegistry_front__Web)
 
-## Developers
+## **Developers**
 
 - [**Aransa Garcia**](https://github.com/aransagarcia) (Program Manager)
 - [**Joseph P. Pasaoa**](https://github.com/joseph-p-pasaoa) (Tech Lead)
@@ -34,7 +47,57 @@
 
 ## Developers' Notes
 
-### **I. Database SCHEMA**
+## **I. Technologies Implemented**
+
++ PostgreSQL 12.1
++ Express.js 4.16.1
++ React 16.12.0
++ React/Redux 7.2.0
++ Redux 4.0.5
++ React Router Web 5.1.2
++ Pg-promise 10.4.4
++ Axios 0.19.2
++ Bootstrap 4.4.1
++ React Bootstrap Carousel 4.0.3
++ Multer 1.4.2
++ Node.js 13.8.0
++ JavaScript 2019 / ECMAScript 10
++ HTML5
++ CSS3
++ Git / Github
+
+## **II. Setup**
+
++ To run this project [back end], install it locally using npm:
+  ```
+  $ npm install
+  $ npm start
+  ```
++ Instantiate and seed the PostgresQL database:
+  ```
+  $ cd database
+  $ psql -f greenlist_registry_db.sql
+  ```
++ To run the full stack of Greenlist, install the [front end](https://github.com/joseph-p-pasaoa/bingebook_frontE__FullStack) locally afterwards, as well, in a separate folder using npm:
+  ```
+  $ npm install
+  $ npm start
+  ```
++ Greenlist will then be found in browser at: http://localhost:12000/
+
+## **III. Developers' To Dos**
+
++ Materials Research Dashboard
++ Styling Consistency
++ Mobile Device Responsiveness
++ Further Bootstrap Integration
++ Encrypted User-Auth
+
+### **IV. PRESENTATION Slides**
+
+[Presentation PDF](./readme/Greenlist-Pursuit_Hackathon_Presentation.pdf)
+
+### **V. Database SCHEMA**
 
 ![database schema](./readme/database-schema.png)
 
@@ -86,7 +149,6 @@
     - creator_id - _References Creators + On Delete Cascade_
     - is_need - _Boolean_
 
-
   - **Photos**
     - id
     - photo_url - _Not Null_
@@ -94,7 +156,7 @@
 
 ---
 
-### **II. ENDPOINTS**
+### **VI. ENDPOINTS**
 
 - **Creators**
 
@@ -147,3 +209,9 @@
   | GET    | `/photos/:reclaim_id` | Get all by reclaim_id | n/a       |
   | POST   | `/photos/add/`        | Add new photo         | `photo_url`, `reclaim_id` |
   | DELETE | `/photos/delete/:id`         | Delete photo          | n/a       |
+
+---
+
+### **VII. WIREFRAMES
+
+[Wireframes PDF](./readme/wireframes.pdf)
