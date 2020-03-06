@@ -2,8 +2,6 @@
 
 **WINNER** of Pursuit 6.2 Hackathon's **Most Impactful Award**!
 
----
-
 Designers, especially independent and small designers, lack a centralized resource to find, research, and even discover eco-friendly sustainable materials they can use.
 
 Greenlist Registry aims to be an official registry, directory, and forum for designers and brands to find providers and suppliers of green materials. As well as serve as a networking vessel for material reclaim.
