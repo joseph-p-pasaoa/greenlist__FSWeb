@@ -215,6 +215,6 @@ We see Greenlist as an app that can be implemented sooner rather than later into
 
 ---
 
-### **VII. WIREFRAMES
+### **VII. WIREFRAMES**
 
 [Wireframes PDF](./readme/wireframes.pdf)
