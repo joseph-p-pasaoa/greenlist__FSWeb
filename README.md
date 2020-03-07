@@ -37,8 +37,9 @@ We see Greenlist as an app that can be implemented sooner rather than later into
 - **LEAD Instructor:** [Alejandro Franco](https://github.com/alejo4373)
 - **IA:** [Jung Rae Jang](https://github.com/jungraejang)
 - **IA:** [Wynter Reid](https://github.com/wynterreid)
-- **Program Manager:** Dessa Shepherd
+- **Program Manager:** [Dessa Shepherd](https://www.linkedin.com/in/dessa-shepherd-7a55b374/)
 - **Mentor:** [Robert Abreu](http://www.fiveeightyeight.com/)
+- **Uber Tech Advisor:** [Prateek Arora](https://www.linkedin.com/in/arora-prateek/)
 
 ## Industry Advisors
 
