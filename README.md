@@ -1,5 +1,7 @@
 # Greenlist Registry (back end) (full-stack app)
 
+**WINNER** of Pursuit 6.2 Hackathon's **Most Impactful Award**!
+
 Designers, especially independent and small designers, lack a centralized resource to find, research, and even discover eco-friendly sustainable materials they can use.
 
 Greenlist Registry aims to be an official registry, directory, and forum for designers and brands to find providers and suppliers of green materials. As well as serve as a networking vessel for material reclaim.
@@ -35,15 +37,16 @@ We see Greenlist as an app that can be implemented sooner rather than later into
 - **LEAD Instructor:** [Alejandro Franco](https://github.com/alejo4373)
 - **IA:** [Jung Rae Jang](https://github.com/jungraejang)
 - **IA:** [Wynter Reid](https://github.com/wynterreid)
-- **Program Manager:** Dessa Shepherd
+- **Program Manager:** [Dessa Shepherd](https://www.linkedin.com/in/dessa-shepherd-7a55b374/)
 - **Mentor:** [Robert Abreu](http://www.fiveeightyeight.com/)
+- **Uber Tech Advisor:** [Prateek Arora](https://www.linkedin.com/in/arora-prateek/)
 
 ## Industry Advisors
 
-- Percy Hicks -- [EclecticLifestyleByPercyHicks | Instagram](https://www.instagram.com/eclecticlifestylesbypercyhicks)
+- Percy Hicks -- [EclecticLifestyleByPercyHicks (Instagram)](https://www.instagram.com/eclecticlifestylesbypercyhicks)
 - Isabella Montoya Paz -- [PazLifestyle](https://www.pazlifestyle.com/)
-- Van Tran -- ()
-- Lisa ? -- ()
+- Van Tran -- [Van Tran | Sport Elle Inc](https://www.linkedin.com/in/van-tran-ny/)
+- Lisa Vastola -- [Lisa Vastola | Republic Clothing Group](https://www.linkedin.com/in/lisa-vastola-8371431b/)
 
 ## Developers' Notes
 
@@ -78,12 +81,12 @@ We see Greenlist as an app that can be implemented sooner rather than later into
   $ cd database
   $ psql -f greenlist_registry_db.sql
   ```
-+ To run the full stack of Greenlist, install the [front end](https://github.com/joseph-p-pasaoa/greenlistRegistry_front__Web) locally afterwards, as well, in a separate folder using npm:
++ To run the full stack application of Greenlist, install the [front end](https://github.com/joseph-p-pasaoa/greenlistRegistry_front__Web) locally, as well, in a separate folder using npm:
   ```
   $ npm install
   $ npm start
   ```
-+ Greenlist will then be found in browser at: http://localhost:12000/
++ GREENLIST can then be found in browser at: http://localhost:12000/
 
 ## **III. Developers' To Dos**
 
