@@ -1,12 +1,12 @@
-# Greenlist Registry (back end) (full-stack app)
+# Greenlist (a full-stack web solution)
 
-**WINNER** of Pursuit 6.2 Hackathon's **Most Impactful Award**!
+## **WINNER** of [Pursuit](https://www.pursuit.org/about-us) 6.2 Hackathon's **Most Impactful Award**!
 
-![screen capture of Welcome page](./readme/screencap_welcome_hires.png)
+![screen capture of Welcome page](./docs/readme/screencap_welcome_hires.png)
 
 Designers, especially independent and small designers, lack a centralized resource to find, research, and even discover eco-friendly sustainable materials they can use.
 
-Greenlist Registry aims to be an official registry, directory, and forum for designers and brands to find providers and suppliers of green materials. As well as serve as a networking vessel for material reclaim.
+Greenlist aims to be an official registry, directory, and forum for designers and brands to find providers and suppliers of green materials. As well as serve as a networking vessel for material reclaim.
 
 We see Greenlist as an app that can be implemented sooner rather than later into the fashion ecosystem and it would fill a large gap in the workflow of independent designers and small businesses.
 
@@ -16,25 +16,20 @@ We see Greenlist as an app that can be implemented sooner rather than later into
 
 - [Technologies Implemented](#i-technologies-implemented)
 - [Setup](#ii-setup)
-- [Developer's To Dos](#iii-to-do)
-- [Presentation Slides](#iv-presentation-slides)
+- [Developer's To Dos](#iii-developers-to-dos)
+- [Frontend Wireframes](#iv-frontend-wireframes)
 - [Database Schema](#v-database-schema)
-- [Endpoints](#vi-endpoints)
-- [Wireframes](#vii-wireframes)
-
-### _Repos_
-
-- [Back End](https://github.com/joseph-p-pasaoa/greenlistRegistry_back__Web) (this repo)
-- [Front End](https://github.com/joseph-p-pasaoa/greenlistRegistry_front__Web)
+- [Server Endpoints](#vi-server-endpoints)
+- [Presentation Slides](#vii-presentation-slides)
 
 ## **Developers**
 
 - [**Aransa Garcia**](https://github.com/aransagarcia) (Program Manager)
 - [**Joseph P. Pasaoa**](https://github.com/joseph-p-pasaoa) (Tech Lead)
 - [**Kathy Puma**](https://github.com/KathyPuma) (PR Review)
-- [**Sergio Salama**](https://github.com/sergiocohens) (UX/UI)
+- [**Sergio Salama**](https://github.com/cohen-salama) (UX/UI)
 
-## Instructional Team
+### Instructional Team
 
 - **LEAD Instructor:** [Alejandro Franco](https://github.com/alejo4373)
 - **IA:** [Jung Rae Jang](https://github.com/jungraejang)
@@ -43,7 +38,7 @@ We see Greenlist as an app that can be implemented sooner rather than later into
 - **Mentor:** [Robert Abreu](http://www.fiveeightyeight.com/)
 - **Uber Tech Advisor:** [Prateek Arora](https://www.linkedin.com/in/arora-prateek/)
 
-## Industry Advisors
+### Industry Advisors
 
 - Percy Hicks -- [EclecticLifestyleByPercyHicks (Instagram)](https://www.instagram.com/eclecticlifestylesbypercyhicks)
 - Isabella Montoya Paz -- [PazLifestyle](https://www.pazlifestyle.com/)
@@ -67,14 +62,15 @@ We see Greenlist as an app that can be implemented sooner rather than later into
 + Multer 1.4.2
 + Node.js 13.8.0
 + JavaScript 2019 / ECMAScript 10
-+ HTML5
 + CSS3
++ HTML5
 + Git / Github
 
 ## **II. Setup**
 
-+ To run this project [back end], install it locally using npm:
++ To run **GREENLIST**, first install the backend locally using npm:
   ```
+  $ cd backend
   $ npm install
   $ npm start
   ```
@@ -83,12 +79,15 @@ We see Greenlist as an app that can be implemented sooner rather than later into
   $ cd database
   $ psql -f greenlist_registry_db.sql
   ```
-+ To run the full stack application of Greenlist, install the [front end](https://github.com/joseph-p-pasaoa/greenlistRegistry_front__Web) locally, as well, in a separate folder using npm:
++ And lastly install the frontend locally using npm:
   ```
+  $ cd ../../frontend
   $ npm install
   $ npm start
   ```
-+ GREENLIST can then be found in browser at: http://localhost:12000/
++ **GREENLIST** will then be found in browser at: 
+
+  http://localhost:12000/
 
 ## **III. Developers' To Dos**
 
@@ -98,13 +97,15 @@ We see Greenlist as an app that can be implemented sooner rather than later into
 + Further Bootstrap Integration
 + Encrypted User-Auth
 
-### **IV. PRESENTATION Slides**
+## **IV. Frontend Wireframes**
 
-[Presentation PDF](./readme/Greenlist-Pursuit_Hackathon_Presentation.pdf)
+[Wireframes PDF](./docs/readme/wireframes.pdf)
 
-### **V. Database SCHEMA**
+---
 
-![database schema](./readme/database-schema.png)
+## **V. Database Schema**
+
+![database schema](./docs/readme/database-schema.png)
 
   - **Creators**
     - id
@@ -161,7 +162,7 @@ We see Greenlist as an app that can be implemented sooner rather than later into
 
 ---
 
-### **VI. ENDPOINTS**
+## **VI. Server Endpoints**
 
 - **Creators**
 
@@ -217,6 +218,14 @@ We see Greenlist as an app that can be implemented sooner rather than later into
 
 ---
 
-### **VII. WIREFRAMES**
+## **VII. Presentation Slides**
 
-[Wireframes PDF](./readme/wireframes.pdf)
+[Presentation PDF](./docs/readme/Greenlist-Pursuit_Hackathon_Presentation.pdf)
+
+
+---
+---
+
+### Note: _Archived Frontend Repo_
+
+This repo was formerly only the backend repo before we combined both front and back into one. The original, now archived, front end repo can be found at: [greenlistRegistry_front__Web (archived)](https://github.com/joseph-p-pasaoa/greenlistRegistry_front__Web).
