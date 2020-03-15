@@ -1,0 +1,208 @@
+/*
+GROUP 4: ARANSA GARCIA, JOSEPH P. PASAOA, KATHY PUMA, AND SERGIO SALAMA
+Client APP CSS | Greenlist Registry (a full-stack sustainable material forum app)
+*/
+
+
+/* FONT INITS 
+font-family: 'Lato', sans-serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Reem Kufi', sans-serif;
+*/
+@font-face {
+  font-family: 'Lato';
+  src: url('./assets/fonts/Lato/Lato-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/Montserrat/Montserrat-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Raleway';
+  src: url('./assets/fonts/Raleway/Raleway-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+/* @font-face {
+  font-family: 'Montez';
+  src: url('./assets/fonts/Montez/Montez-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+} */
+
+
+/* POST-RESET SETUP */
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+html, body, div#root, .App {
+  height: 100%;
+  width: 100%;
+}
+
+ul, li {
+  list-style: none;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 900;
+}
+
+h1.profile--name {
+  font-size: 2em;
+  color: #fff;
+  text-shadow: 0px 2px 3px #000;
+}
+
+h2 { /* SECTION TITLES */
+  font-size: 1.8em;
+  margin: 2px 3px 22px 0px;
+}
+
+h3.card--name {
+  font-size: 1.3em;
+  color: #fff;
+  text-shadow: 0px 2px 3px #000;
+}
+
+h4.sub--name {
+  color: #000;
+}
+
+h5 {
+  font-size: 1.3em;
+  margin: 55px 3px 11px 3px;
+}
+
+/* HELPERS */
+.j-flex-column {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.j-flex-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+
+/* MAIN BUILD */
+body, p {
+  font-family: 'Lato', sans-serif;
+  font-size: 1em;
+}
+
+body {
+  position: fixed;
+  background: rgb(250,250,250);
+  background: linear-gradient(180deg, rgba(250,250,250,1) 5%, rgba(255,255,254,1) 5%, rgba(197,219,152,1) 100%);
+}
+
+.App {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 150px auto;
+}
+
+.welcome {
+  text-align: center;
+}
+
+.landing-logo {
+  width: 400px;
+  margin: 11px auto;
+}
+
+.container-stage {
+  overflow-y: auto;
+}
+
+.container-centering {
+  width: 725px;
+  margin: 0px auto;
+}
+
+.container-stage {
+  grid-row: 2;
+}
+
+.center-this {
+  margin: 0px auto;
+  width: 800px;
+}
+
+/* FORMS & INPUTS */
+.j-form {
+  align-items: flex-end;
+  display: grid;
+
+  margin: 0 auto;
+  width: 100%;
+}
+
+.j-form .form-row {
+  width: 100%;
+  justify-content: flex-end;
+  margin-bottom: 11px;
+}
+
+.j-form button {
+  /* margin-top: 11px; */
+  height: 100%;
+  border-radius: 5px;
+  min-height: 32px;
+}
+
+.j-form input, .j-form select, .j-form textarea {
+  margin-left: 2%;
+}
+
+.j-form input[type="text"], .j-form input[type="number"], .j-form select {
+  line-height: 1.6em;
+}
+
+.j-form input, .j-form textarea {
+  border-radius: 5px;
+  border-style: inset;
+  border-width: 2px;
+  padding: 2px 6px;
+  font-size: 1em;
+}
+
+.j-form textarea {
+  margin-bottom: 9px;
+  padding-top: 7px;
+}
+
+.pad-bottom {
+  padding-bottom: 44px;
+  border-bottom: solid 11px rgba(148, 175, 93, 0.4);
+}
+
+.dropdown-menu {
+  z-index: 100;
+}

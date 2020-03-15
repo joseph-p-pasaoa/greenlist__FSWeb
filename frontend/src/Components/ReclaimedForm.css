@@ -1,0 +1,73 @@
+/*
+GROUP 4: ARANSA GARCIA, JOSEPH P. PASAOA, KATHY PUMA, AND SERGIO SALAMA
+Client Reclaimed Form CSS | Greenlist Registry (a full-stack sustainable material forum app)
+*/
+
+
+form.add-reclaim {
+    width: 725px;
+    grid-template-columns: max-content auto;
+    /* grid-template-rows:  */
+    align-items: flex-start;
+}
+
+form.add-reclaim input[type="file"] {
+    background-color: #fff;
+}
+
+.add-reclaim label {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    min-height: 42px;
+    padding-top: 6px;
+}
+
+/* .add-reclaim .el-box {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    /* min-height: 42px;
+    padding-top: 6px;
+} */
+
+/* .j-form input, .j-form select, .j-form textarea {
+    margin-left: 2%;
+}
+
+.j-form input[type="text"], .j-form input[type="number"], .j-form select {
+    height: 2.2em;
+}
+
+.j-form input, .j-form textarea {
+    border-radius: 5px;
+    border-style: inset;
+    border-width: 2px;
+    padding: 2px 6px;
+} */
+
+.j-form select {
+    width: 23%;
+}
+
+.input-body {
+    height: 110px;
+}
+
+.j-form input[type="number"] {
+    width: 51%;
+}
+
+.j-form p.msg--error {
+    text-align: right;
+    white-space: pre-line;
+
+    font-weight: bold;
+    color: red;
+}

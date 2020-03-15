@@ -1,0 +1,43 @@
+/* .resourcerPicNL{
+    height:200px;
+    width:250px;
+} */
+
+.all--card {
+    border-bottom: solid 2px #333;
+    padding: 16px 0px;
+}
+
+a.j-card:link, a.j-card:visited {
+    text-decoration: none;
+    color: #000;
+}
+
+a.j-card:hover, a.j-card:active {
+    text-decoration: none;
+    color: #000;
+}
+
+a.j-card:hover, a.j-card:active {
+    text-decoration: none;
+    color: #000;
+}
+
+.all--card:hover, .all--card:active {
+    background-color: rgba(255,255,255,0.4);
+}
+
+.resourcer--avatar {
+    height: 200px;
+    width: 250px;
+    object-fit: cover;
+
+    border: solid 2px #999;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.resourcer--materials {
+    font-size: 1em;
+    margin: 45px 3px 3px 20px;
+}
