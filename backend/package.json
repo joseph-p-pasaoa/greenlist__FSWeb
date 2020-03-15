@@ -1,6 +1,6 @@
 {
-  "name": "greenlist-registry--back",
-  "version": "0.0.0",
+  "name": "greenlist__fsweb--back",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
@@ -9,7 +9,7 @@
   "author": "Aransa Garcia, Joseph P. Pasaoa, Kathy Puma, and Sergio Salama",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "cookie-parser": "~1.4.4",
+    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
     "express": "~4.16.1",
