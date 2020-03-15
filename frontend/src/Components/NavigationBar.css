@@ -1,0 +1,131 @@
+.container-navbar {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  
+  width: 725px;
+}
+
+.container-logo {
+  flex-direction: row-reverse;
+}
+
+.image-logo {
+  height: 70px;
+  margin: 22px 3px 11px 3px;
+}
+
+.btn-primary {
+    color: black; 
+    background-color: white; 
+    border-color: white;
+} 
+
+ul.j-navbar {
+  position: relative;
+  border-bottom: solid 1px #ddd;
+  /* padding-bottom: 3px; */
+  margin-bottom: 3px;
+}
+
+.j-navbar li {
+    min-width: 145px;
+    min-height: 28px;
+    /* border: solid 1px #000; */
+    padding: 6px 3px;
+    margin: 0px;
+
+    text-align: center;
+}
+
+.j-navbar #nav-dropdown {
+  padding: 0px;
+}
+
+.j-navbar .dropdown {
+  z-index: 20;
+}
+
+.j-navbar a:link, .j-navbar a:visited {
+  z-index: 20;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9em;
+  font-weight: normal;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  color: #000;
+}
+
+.j-navbar a:hover, .j-navbar a:active {
+  color: #888;
+}
+
+.dropdown-menu{
+  margin: 0px 0 0;
+}
+
+.show>.btn-primary.dropdown-toggle{
+  color: black;
+    background-color: white;
+    border-color: white;
+}
+
+.j-navbar li#active-slide {
+  position: absolute;
+  top: 1px;
+  z-index: 10;
+  transition-property: opacity, transform;
+  transition-duration: 1s,  0.22s;
+  background: rgb(255,255,255);
+  background: linear-gradient(180deg, rgba(255,255,255,1) 47%, rgba(210,240,255,1) 100%);
+  border-bottom: solid 1px #000;
+  transform: translateX(0px);
+}
+
+/* ul.j-navbar--sub {
+  position: relative;
+  /* border-bottom: solid 1px #ddd; */
+  /* padding-bottom: 3px;
+  margin-bottom: 3px;
+}
+
+.j-navbar--sub li {
+    min-width: 145px;
+    min-height: 28px;
+    /* border: solid 1px #000;
+    padding: 6px 3px;
+    margin: 0px;
+
+    text-align: center;
+}
+
+.j-navbar--sub a:link, .j-navbar--sub a:visited {
+  z-index: 20;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9em;
+  font-weight: normal;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  color: #000;
+}
+
+.j-navbar--sub a:hover, .j-navbar--sub a:active {
+  color: #888;
+}
+
+.j-navbar--sub li#active-slide {
+  position: absolute;
+  top: 1px;
+  z-index: 10;
+  transition-property: opacity, transform;
+  transition-duration: 1s,  0.22s;
+  background: rgb(255,255,255);
+  background: linear-gradient(180deg, rgba(255,255,255,1) 47%, rgba(210,240,255,1) 100%);
+  border-bottom: solid 1px #000;
+  transform: translateX(0px);
+} */

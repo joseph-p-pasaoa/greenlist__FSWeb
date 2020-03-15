@@ -1,0 +1,20 @@
+
+.creator--avatar {
+    height: 200px;
+    width: 250px;
+    object-fit: cover;
+
+    border: solid 2px #999;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.creator--materials {
+    font-size: 1em;
+    margin: 45px 3px 3px 20px;
+}
+
+.creator--postscount {
+    font-size: 1em;
+    margin: 45px 3px 3px 20px;
+}

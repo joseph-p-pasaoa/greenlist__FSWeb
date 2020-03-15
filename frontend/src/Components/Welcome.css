@@ -1,0 +1,32 @@
+div.welcome {
+    grid-row: span 2;
+    padding-top: 11px;
+}
+
+div.welcome > h1 {
+    padding-bottom: 200px;
+}
+
+div.welcome form {
+    margin-bottom: 47px;
+}
+
+div.welcome form label {
+    margin-right: 3px;
+}
+
+div.welcome form input, div.welcome form button {
+    border-radius: 3px;
+}
+
+div.welcome form input:first-of-type {
+    margin-right: 34px;
+}
+
+div.welcome form button {
+    margin-left: 32px;
+    padding: 4px 19px 5px 19px;
+    position: relative;
+    top: -2px;
+    background-color: #a3ef74e3;
+}
