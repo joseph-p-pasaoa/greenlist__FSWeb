@@ -51,7 +51,7 @@ class RegisterForm extends React.Component {
 
     let response = null;
     try {
-        response = await axios.post('http://localhost:11500/creators/add', creatorPost);
+        response = await axios.post('/creators/add', creatorPost);
     } catch(error) {
         console.log(error)
     }

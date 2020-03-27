@@ -8,8 +8,8 @@ class Welcome extends React.Component {
   constructor(props) {
     super();
     this.state = {
-      username: "",
-      password: "",
+      username: "EmilyS",
+      password: "123",
       warning: false
     };
   }
@@ -27,7 +27,7 @@ class Welcome extends React.Component {
 
     let response = null;
     try {
-      response = await axios.post("http://localhost:11500/creators/auth", payload);
+      response = await axios.post("/creators/auth", payload);
     } catch (error) {
       console.log(error);
     }
