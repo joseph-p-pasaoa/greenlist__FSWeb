@@ -174,7 +174,7 @@ VALUES
 
     ('Mario Cosplay Hoodie', 20, 'Adult hoodies', 'Unused hoodies size L', '50% cotton & 50% polyester', 2, false),
 
-    ('Black Jeans', 15, 'pairs', 'Black Highwasited jeans!size 7/8 (vintage sizes run small-these are more', 'cotton', 3, false),
+    ('Black Jeans', 15, 'pairs', 'Black Highwasited jeans!size 7/8 (vintage sizes run small-these are more)', 'cotton', 3, false),
 
     ('Denim Vintage Skirt', 30, 'pieces', 'Gap denim skirt buttons and zips in front, and features pockets in front and back and an attached tie belt.Size: Girls size 12; fits like a ladies 4.', 'cotton', 3, false);
 
