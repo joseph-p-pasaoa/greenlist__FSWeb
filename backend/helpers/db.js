@@ -5,7 +5,7 @@ Server Database Connect Helper | Greenlist Registry (a full-stack sustainable ma
 
 
 const pgp = require('pg-promise')();
-  const connectString = 'postgres://localhost:5432/greenlist_registry_db';
+  const connectString = process.env.DATABASE_URL;
   const db = pgp(connectString);
 
 

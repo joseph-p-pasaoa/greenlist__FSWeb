@@ -1,8 +1,3 @@
-DROP DATABASE IF EXISTS greenlist_registry_db;
-CREATE DATABASE greenlist_registry_db;
-\c greenlist_registry_db;
-
-
 CREATE TABLE creators
 (
     id SERIAL PRIMARY KEY,

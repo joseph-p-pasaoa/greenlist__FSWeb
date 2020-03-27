@@ -16,7 +16,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../frontend/build')));
 app.use(cors());
 
 
@@ -37,6 +37,10 @@ app.use('/reclaims', reclaimsRouter);
 app.use('/materials', materialsRouter);
 app.use('/photos', photosRouter);
 app.use('/search', searchRouter);
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname + "../frontend/build/index.html"));
+})
 
 /* ERROR HANDLING */
     // no-route catch

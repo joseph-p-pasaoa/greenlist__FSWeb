@@ -1,0 +1,24 @@
+{
+  "name": "greenlist__fsweb",
+  "version": "1.0.0",
+  "description": "## **WINNER** of [Pursuit](https://www.pursuit.org/about-us) 6.2 Hackathon's **Most Impactful Award**!",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "node ./backend/bin/www",
+    "heroku-postbuild": "cd backend && npm install && cd ../frontend && npm install && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joseph-p-pasaoa/greenlist__FSWeb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joseph-p-pasaoa/greenlist__FSWeb/issues"
+  },
+  "homepage": "https://github.com/joseph-p-pasaoa/greenlist__FSWeb#readme"
+}
