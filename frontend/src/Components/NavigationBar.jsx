@@ -69,10 +69,10 @@ class NavigationBar extends React.Component {
         </div>
         <ul className='j-navbar j-flex-row'>
             <Link to='/main'><li style={navMain}>Main</li></Link>
-            <Link to={`/creator/${this.props.loggedUser.id}`}><li style={navProfile}>Profile</li></Link>
+            <Link to={`/creator/${this.props.loggedUser.id}`}><li style={navProfile}>My Profile</li></Link>
             <Link to='/addReclaimed'><li style={navAddReclaim}>Post reclaimed</li></Link>
             <li>
-              <NavDropdown id="nav-dropdown" title="Material" style={navMaterials}>
+              <NavDropdown id="nav-dropdown" title="Research" style={navMaterials}>
                 {allMaterials.map(material => {
                   return (
                     <Link to={`/material/${parseInt(material.id)}`} key={material.id}>
