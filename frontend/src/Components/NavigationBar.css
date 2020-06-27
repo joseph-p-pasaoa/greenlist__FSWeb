@@ -85,6 +85,16 @@ ul.j-navbar {
   transform: translateX(0px);
 }
 
+.dropdownItem {
+  padding: .6rem 2rem .2rem 1.3rem;
+  white-space: nowrap;
+}
+
+.dropdownItem::before {
+  content: '▸';
+  padding-right: .3rem;
+}
+
 /* ul.j-navbar--sub {
   position: relative;
   /* border-bottom: solid 1px #ddd; */
