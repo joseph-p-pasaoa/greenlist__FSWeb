@@ -40,7 +40,7 @@ app.use('/photos', photosRouter);
 app.use('/search', searchRouter);
 
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname + "../frontend/build/index.html"));
+    res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
 })
 
 /* ERROR HANDLING */
