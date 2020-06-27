@@ -19,7 +19,7 @@ class ReclaimedList extends React.Component {
     const { creators } = this.state
     return (
       <div className='main-list'>
-        <h2>Reclaimed</h2>
+        <h2>Users With Reclaimed</h2>
         <div className='creatorsList'>
           {creators.map((creator) => {
 
