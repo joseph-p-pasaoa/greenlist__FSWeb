@@ -23,21 +23,25 @@ a.j-card:hover, a.j-card:active {
     color: #000;
 }
 
+.all--card {
+    padding-bottom: 1.5rem;
+}
+
 .all--card:hover, .all--card:active {
     background-color: rgba(255,255,255,0.4);
 }
 
 .resourcer--avatar {
-    height: 200px;
+    height: 108px;
     width: 250px;
     object-fit: cover;
 
     border: solid 2px #999;
     border-radius: 5px;
-    margin: 10px;
+    margin: 1rem 10px 3px;
 }
 
-.resourcer--materials {
+.resourcersList .resourcer--materials {
     font-size: 1em;
-    margin: 45px 3px 3px 20px;
+    margin: 1rem 3px 3px 1.3rem;
 }

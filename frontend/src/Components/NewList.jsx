@@ -29,10 +29,10 @@ class NewList extends React.Component {
 
               <Link to={linkString} key={resourcer.id} className="j-card">
                 <div className='all--card j-flex-row'>
-                  <div>
+                  {/* <div> */}
                     <h3 className='card--name'>{resourcer.company}</h3>
                     <img className='resourcer--avatar' src={resourcerAvatarUrl} alt="Avatar Url"></img>
-                  </div>
+                  {/* </div> */}
                   <p className='resourcer--materials'><strong>Materials:</strong><br />{materialsString}</p>
                 </div>
               </Link>

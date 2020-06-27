@@ -75,6 +75,11 @@ h3.card--name {
   text-shadow: 0px 2px 3px #000;
 }
 
+.resourcersList h3 {
+  width: 25%;
+  margin-left: 2.2rem;
+}
+
 h4.sub--name {
   color: #000;
 }
