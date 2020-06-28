@@ -28,9 +28,9 @@ class ReclaimedList extends React.Component {
             let materialsString = creator.materials.join(', ')
 
             return (
-              <div>
+              <div key={creator.id}>
                 {creator.count !== "0" ? (
-                  <Link to={linkString} key={creator.id} className="j-card">
+                  <Link to={linkString} className="j-card">
                     <div className='all--card j-flex-row'>
                       {/* <div> */}
                         <img className='creator--avatar' src={creatorAvatarUrl} alt="Avatar Url"></img>
