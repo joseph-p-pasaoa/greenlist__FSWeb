@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "start_dev": "nodemon ./bin/www"
+    "start_dev": "nodemon ./bin/www",
+    "clean_dev": "psql -f database/greenlist_registry_db.sql && nodemon ./bin/www"
   },
   "author": "Aransa Garcia, Joseph P. Pasaoa, Kathy Puma, and Sergio Salama",
   "dependencies": {
