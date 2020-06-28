@@ -19,7 +19,7 @@ class ReclaimedList extends React.Component {
     const { creators } = this.state
     return (
       <div className='main-list'>
-        <h2>Reclaimed</h2>
+        <h2>Users With Reclaimed</h2>
         <div className='creatorsList'>
           {creators.map((creator) => {
 
@@ -32,12 +32,13 @@ class ReclaimedList extends React.Component {
                 {creator.count !== "0" ? (
                   <Link to={linkString} key={creator.id} className="j-card">
                     <div className='all--card j-flex-row'>
-                      <div>
-                        <h3 className='card--name'>{creator.firstname} {creator.lastname}</h3>
+                      {/* <div> */}
                         <img className='creator--avatar' src={creatorAvatarUrl} alt="Avatar Url"></img>
-                      </div>
-                      <div>
-                        <p className='creator--materials'><strong>Materials:</strong><br />{materialsString}</p>
+                        <div className='creator--textdiv'>
+                        <h3 className='card--name'>{creator.firstname} {creator.lastname}</h3>
+                      {/* </div> */}
+
+                        <p className='creator--materials'><strong>Available Materials:</strong><br />{materialsString}</p>
                         <p className='creator--postscount'><strong>Posts:</strong><br />{creator.count}</p>
                       </div>
                     </div>

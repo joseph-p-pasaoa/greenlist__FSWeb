@@ -53,7 +53,10 @@ form.add-reclaim input[type="file"] {
 } */
 
 .j-form select {
-    width: 23%;
+    width: auto;
+    height: 2rem;
+    padding: 0 .7rem;
+    align-self: center;
 }
 
 .input-body {

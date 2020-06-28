@@ -12,14 +12,33 @@ class NavigationBar extends React.Component {
   constructor(props) {
     super()
     this.state = {
-      allMaterials: []
+      allMaterials: [],
+      navbarWidth: 0  // width of #jNavbar element, used for slider width responsiveness
     }
   }
 
-  async componentDidMount() {
-    await this.handleGetMaterials()
 
+  async componentDidMount() {
+    this.setState({ navbarWidth: this.setNavbarWidth() });
+    window.addEventListener('resize', () => this.setState({ navbarWidth: this.setNavbarWidth() }));
+    await this.handleGetMaterials()
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.navbarWidth !== this.state.navbarWidth) this.setState({ navbarWidth: this.setNavbarWidth() });
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', () => this.setState({ navbarWidth: this.setNavbarWidth() }));
+  }
+
+  // checks and returns width of #jNavbar each window resize call through lifecycle components above
+  setNavbarWidth() {
+    let navbarWidth = document.querySelector('#jNavbar').offsetWidth;
+    return navbarWidth;
+  }
+
+
   async handleGetMaterials() {
     // const { allMaterials } = this.state
     try {
@@ -46,13 +65,14 @@ class NavigationBar extends React.Component {
     const matchPath = this.props.match.path;
     switch (matchPath) {
       case '/creator/:id':
-        sliderStyle = { transX: "translateX(145px)", opacity: 1 };
+        sliderStyle = { transX: `translateX(${this.state.navbarWidth * .2}px)`, opacity: 1 };
         navProfile = {color: "#1590cf"}; break;
       case '/addReclaimed':
-        sliderStyle = { transX: "translateX(290px)", opacity: 1 };
+        sliderStyle = { transX: `translateX(${this.state.navbarWidth * .4}px)`, opacity: 1 };
         navAddReclaim = {color: "#1590cf"}; break;
       case '/material/:id':
-        sliderStyle = { transX: "translateX(435px)", opacity: 1 };
+        console.log('hit', this.state.navbarWidth * .6)
+        sliderStyle = { transX: `translateX(${this.state.navbarWidth * .6}px)`, opacity: 1 };
         navMaterials = {color: "#1590cf"}; break;
       default:
         sliderStyle = { transX: "translateX(0px)", opacity: 1 };
@@ -67,12 +87,13 @@ class NavigationBar extends React.Component {
         <div className="container-logo j-flex-row">
           <img src={logo} alt="Greenlist" className="image-logo" />
         </div>
-        <ul className='j-navbar j-flex-row'>
+        <ul className='j-navbar j-flex-row' id='jNavbar'>
+            <li id="active-slide" style={{transform: sliderStyle.transX, opacity: sliderStyle.opacity}}></li>
             <Link to='/main'><li style={navMain}>Main</li></Link>
-            <Link to={`/creator/${this.props.loggedUser.id}`}><li style={navProfile}>Profile</li></Link>
+            <Link to={`/creator/${this.props.loggedUser.id}`}><li style={navProfile}>My Profile</li></Link>
             <Link to='/addReclaimed'><li style={navAddReclaim}>Post reclaimed</li></Link>
             <li>
-              <NavDropdown id="nav-dropdown" title="Material" style={navMaterials}>
+              <NavDropdown id="nav-dropdown" title="Research" style={navMaterials}>
                 {allMaterials.map(material => {
                   return (
                     <Link to={`/material/${parseInt(material.id)}`} key={material.id}>
@@ -83,7 +104,6 @@ class NavigationBar extends React.Component {
               </NavDropdown>
             </li>
             <Link onClick={this.props.resetUser} to="/"><li>Log out</li></Link>
-            <li id="active-slide" style={{transform: sliderStyle.transX, opacity: sliderStyle.opacity}}></li>
         </ul>
       </div>
     )

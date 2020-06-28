@@ -84,8 +84,8 @@ class Main extends React.Component {
         <div className="sub-bar j-flex-column container-navbar">
           <ul className='j-main-subnav j-flex-row'>
             <Link to='/main' onClick={this.showNew}><li style={subNavSuppliers}>Suppliers</li></Link>
-            <Link to='/main' onClick={this.showReclaimed}><li style={subNavReclaimed}>Reclaimeds</li></Link>
-            <Link to='/main' onClick={this.showRequests}><li style={subNavRequests}>Your Requests</li></Link>
+            <Link to='/main' onClick={this.showReclaimed}><li style={subNavReclaimed}>Reclaimed</li></Link>
+            <Link to='/main' onClick={this.showRequests}><li style={subNavRequests}>My Requests</li></Link>
           </ul>
           <form onSubmit={this.handleSearch} className='j-form searchBar'>
             <input onChange={this.handleInput} type='text' placeholder='search by material' value={input}></input>

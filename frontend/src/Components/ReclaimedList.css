@@ -1,20 +1,25 @@
 
 .creator--avatar {
     height: 200px;
-    width: 250px;
+    width: 200px;
     object-fit: cover;
 
     border: solid 2px #999;
-    border-radius: 5px;
-    margin: 10px;
+    border-radius: 50%;
+    margin: 0 1rem 3px 2rem;
+}
+
+.creator--textdiv {
+    width: 50%;
+    padding-left: 2.2rem;
 }
 
 .creator--materials {
     font-size: 1em;
-    margin: 45px 3px 3px 20px;
+    margin: 25px 3px 3px 0px;
 }
 
 .creator--postscount {
     font-size: 1em;
-    margin: 45px 3px 3px 20px;
+    margin: 20px 3px 3px 0px;
 }

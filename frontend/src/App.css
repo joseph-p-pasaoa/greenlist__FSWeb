@@ -27,12 +27,6 @@ font-family: 'Reem Kufi', sans-serif;
   font-weight: 900;
   font-style: normal;
 }
-/* @font-face {
-  font-family: 'Montez';
-  src: url('./assets/fonts/Montez/Montez-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-} */
 
 
 /* POST-RESET SETUP */
@@ -79,6 +73,11 @@ h3.card--name {
   font-size: 1.3em;
   color: #fff;
   text-shadow: 0px 2px 3px #000;
+}
+
+.resourcersList h3 {
+  width: 25%;
+  margin-left: 2.2rem;
 }
 
 h4.sub--name {
@@ -174,6 +173,7 @@ body {
   /* margin-top: 11px; */
   border-radius: 5px;
   min-height: 32px;
+  padding: .25rem .7rem;
 }
 
 .j-form input, .j-form select, .j-form textarea {

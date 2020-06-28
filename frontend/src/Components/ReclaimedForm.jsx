@@ -181,12 +181,12 @@ class ReclaimedForm extends Component {
                   value={quantityLabelSelect}
                   onChange={this.handleChange}
                 >
-                  <option value="default" autoFocus disabled>Choose unit type --</option>
-                  <option value="units">units</option>
+                  <option value="default" autoFocus disabled>-- unit type --</option>
                   <option value="lbs">lbs</option>
-                  <option value="oz">ounces</option>
                   <option value="kgs">kgs</option>
+                  <option value="oz">ounces</option>
                   <option value="grams">grams</option>
+                  <option value="units">units</option>
                 </select>
               </div>
             {/* </div> */}
