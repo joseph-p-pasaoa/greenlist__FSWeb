@@ -105,11 +105,15 @@ class ReclaimedForm extends Component {
         reclaimPost.append('reclaimPhotos', photoFiles[i]);
       }
 
+      /* DEMO DISABLE
       await axios.post("/reclaims/add", reclaimPost);
 
       this.props.history.push({
           pathname: `/creator/${this.props.loggedUser.id}`
       });
+      */
+
+      this.setState({ errorMsg: 'Thank you for your post. Unfortunately successful submissions have been disabled in this demo.' })
     }
   }
 

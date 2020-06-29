@@ -8,8 +8,8 @@ class Welcome extends React.Component {
   constructor(props) {
     super();
     this.state = {
-      username: "",
-      password: "",
+      username: "EmilyS",
+      password: "123",
       warning: false
     };
   }
@@ -77,6 +77,11 @@ class Welcome extends React.Component {
         <p className="warning">
           {warning === true ? "incorrect username or password" : ""}
         </p>
+        <br />
+        <strong>DEMO LOGIN</strong><br />
+        Username: EmilyS<br />
+        Password: 123<br />
+        <br />
       </div>
     );
   }
