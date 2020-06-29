@@ -71,7 +71,6 @@ class NavigationBar extends React.Component {
         sliderStyle = { transX: `translateX(${this.state.navbarWidth * .4}px)`, opacity: 1 };
         navAddReclaim = {color: "#1590cf"}; break;
       case '/material/:id':
-        console.log('hit', this.state.navbarWidth * .6)
         sliderStyle = { transX: `translateX(${this.state.navbarWidth * .6}px)`, opacity: 1 };
         navMaterials = {color: "#1590cf"}; break;
       default:
