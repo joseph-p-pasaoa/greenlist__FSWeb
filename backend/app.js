@@ -5,8 +5,9 @@ Server App MAIN | Greenlist Registry (a full-stack sustainable material forum ap
 
 
 /* MODULE INITS */
+require('dotenv').config();
 const express = require('express');
-  const app = express();
+const app = express();
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -16,7 +17,6 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
 
@@ -37,6 +37,17 @@ app.use('/reclaims', reclaimsRouter);
 app.use('/materials', materialsRouter);
 app.use('/photos', photosRouter);
 app.use('/search', searchRouter);
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../frontend/build')));
+}
+app.use(express.static(path.join(__dirname, 'public')));
+if (process.env.NODE_ENV === 'production') {
+  app.use('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../frontend/build/index.html'));
+  });
+}
+
 
 /* ERROR HANDLING */
     // no-route catch

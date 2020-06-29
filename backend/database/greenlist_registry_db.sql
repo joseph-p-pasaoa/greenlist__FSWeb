@@ -1,8 +1,26 @@
-DROP DATABASE IF EXISTS greenlist_registry_db;
-CREATE DATABASE greenlist_registry_db;
-\c greenlist_registry_db;
+/*
+GROUP 4: ARANSA GARCIA, JOSEPH P. PASAOA, KATHY PUMA, AND SERGIO SALAMA
+DATABASE + SEED File | Greenlist Registry (a full-stack sustainable material forum app)
+*/
 
 
+
+-- this commented for deployment ===
+-- DROP DATABASE IF EXISTS greenlist_registry_db;
+-- CREATE DATABASE greenlist_registry_db;
+-- \c greenlist_registry_db;
+
+
+/* CLEANUP */
+DROP TABLE IF EXISTS photos;
+DROP TABLE IF EXISTS reclaims;
+DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS materials;
+DROP TABLE IF EXISTS resourcers;
+DROP TABLE IF EXISTS creators;
+
+
+/* CREATE TABLES */
 CREATE TABLE creators
 (
     id SERIAL PRIMARY KEY,
@@ -215,7 +233,7 @@ VALUES
     (10, 'http://localhost:11500/images/reclaims/vkskirt4.jpg');
 
 
-/* DISPLAY QUERIES */
+/* TEST DISPLAY QUERIES ===
 SELECT *
 FROM creators;
 SELECT *
@@ -228,3 +246,4 @@ SELECT *
 FROM reclaims;
 SELECT *
 FROM photos;
+*/
