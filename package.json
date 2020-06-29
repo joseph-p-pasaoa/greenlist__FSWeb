@@ -1,9 +1,6 @@
 {
   "name": "greenlist",
   "version": "1.0.0",
-  "engines": {
-    "node": "13.x"
-  },
   "description": "A registry & forum web app connecting eco-conscious fashion designers with makers & suppliers of sustainable textiles, secondly enabling a powerful material reclaim network.",
   "main": "frontend/src/index.js",
   "directories": {
