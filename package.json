@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "cd backend && npm install && cd ../frontend && npm install && npm run build"
+    "heroku-postbuild": "cd backend && npm install && cd ../frontend && npm install && npm run build",
+    "start": "node ./backend/bin/www"
   },
   "author": "Aransa Garcia, Joseph P. Pasaoa, Kathy Puma, and Sergio Salama",
   "repository": {
@@ -16,7 +17,6 @@
     "url": "git+https://github.com/joseph-p-pasaoa/greenlist__FSWeb.git"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/joseph-p-pasaoa/greenlist__FSWeb/issues"
