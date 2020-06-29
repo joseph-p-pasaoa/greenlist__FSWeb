@@ -1,0 +1,24 @@
+{
+  "name": "greenlist",
+  "version": "1.0.0",
+  "description": "A registry & forum web app connecting eco-conscious fashion designers with makers & suppliers of sustainable textiles, secondly enabling a powerful material reclaim network.",
+  "main": "frontend/src/index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "cd backend && npm install && cd ../frontend && npm install && npm run build"
+  },
+  "author": "Aransa Garcia, Joseph P. Pasaoa, Kathy Puma, and Sergio Salama",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joseph-p-pasaoa/greenlist__FSWeb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joseph-p-pasaoa/greenlist__FSWeb/issues"
+  }
+}
