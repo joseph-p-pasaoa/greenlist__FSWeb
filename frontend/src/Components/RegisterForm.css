@@ -1,0 +1,23 @@
+.register-header {
+    margin-top: 7rem;
+    margin-bottom: 2rem;
+}
+
+.registrationform {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.registrationform input {
+    width: 22rem;
+    height: 1.8rem;
+    margin-bottom: 1.2rem;
+    margin-right: 1rem;
+}
+
+.registrationform button {
+    width: 9rem;
+    padding: .3rem .7rem;
+} 

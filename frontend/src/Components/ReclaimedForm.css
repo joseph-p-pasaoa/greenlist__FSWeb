@@ -71,6 +71,5 @@ form.add-reclaim input[type="file"] {
     text-align: right;
     white-space: pre-line;
 
-    font-weight: bold;
     color: red;
 }
