@@ -38,6 +38,7 @@ app.use('/materials', materialsRouter);
 app.use('/photos', photosRouter);
 app.use('/search', searchRouter);
 
+console.log("HIT: ", process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../frontend/build')));
 }
