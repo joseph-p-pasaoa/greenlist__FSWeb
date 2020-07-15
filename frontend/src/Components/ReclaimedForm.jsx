@@ -86,6 +86,7 @@ class ReclaimedForm extends Component {
       errors.push(4);
     }
     if (errorsOutput.length > 0) {
+      console.log(errors)
       this.setState({ errorMsg: errorsOutput.join('\n') });
       errorRefs[errors[0]].current.focus();
     } else {
