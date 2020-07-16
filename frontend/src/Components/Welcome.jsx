@@ -31,7 +31,6 @@ class Welcome extends React.Component {
     } catch (error) {
       console.log(error);
     }
-    console.log(response.data, "---", response.data.status);
 
     if (response.data.status === "success") {
       const { id, username, avatar_url } = response.data.payload;
